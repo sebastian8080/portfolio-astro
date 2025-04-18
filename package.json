@@ -1,0 +1,23 @@
+{
+  "name": "astro-curso",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "concurrently \"astro dev\" \"npx tailwindcss -i ./src/styles/tailwind.css -o ./public/tailwind.css --watch\"",
+    "build": "astro build && npx tailwindcss -i ./src/styles/tailwind.css -o ./public/tailwind.css",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.7.3",
+    "astro-curso": "file:"
+  },
+  "devDependencies": {
+    "@astrojs/tailwind": "^6.0.2",
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.0"
+  }
+}
