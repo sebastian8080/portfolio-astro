@@ -1,22 +1,110 @@
-<nav class="flex justify-between p-4 bg-white shadow">
-    <a href="/" class="font-bold text-lg">
-        Sebastian Armijos
-    </a>
-    <ul class="flex gap-4">
-        <li>
-            <a href="/about">
-                Sobre mí
-            </a>
-        </li>
-        <li>
-            <a href="/projects">
-                Proyectos
-            </a>
-        </li>
-        <li>
-            <a href="/contact">
-                Contacto
-            </a>
-        </li>
-    </ul>
-</nav>
+---
+const navLinks = [
+    { name: 'Home', href: '/'},
+    { name: 'About Us', href: '/about'},
+    { name: 'Services', href: '/services'},
+    { name: 'Contact', href: '/contact'},
+]
+---
+
+<header class="bg-white shadow-md sticky top-0 z-40">
+    <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <a class="text-3xl font-extrabold text-purple-700 leading-none" href="/">
+            Mi Empresa
+        </a>
+
+        <ul class="hidden lg:flex lg:space-x-8 items-center">
+            {navLinks.map(link => (
+                <li>
+                    <a class="text-lg font-medium text-gray-700 hover:text-purple-700 transition duration-300" href={link.href}>
+                        {link.name}
+                    </a>
+                </li>
+            ))}
+            <li>
+                <a href="/contact" class="ml-6 px-6 py-2 bg-purple-700 text-white rounded-lg font-semibold hover:bg-purple-800 transition duration-300">
+                    Get Started
+                </a>
+            </li>
+        </ul>
+
+        <div class="lg:hidden">
+            <button id="navbar-burger" class="flex items-center p-3 text-purple-700 focus:outline-none">
+                <svg class="block h-6 w-6 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <title>Mobile menu</title>
+                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <div id="navbar-menu" class="fixed inset-y-0 right-0 w-64 bg-white shadow-xl transform translate-x-full transition-transform duration-300 ease-in-out z-50 lg:hidden">
+        <nav class="flex flex-col h-full py-6 px-6">
+            <div class="flex items-center justify-between mb-8">
+                <a class="text-2xl font-extrabold text-purple-700 leading-none" href="/">
+                    Mi Empresa
+                </a>
+                <button id="navbar-close" class="text-gray-400 hover:text-gray-600 focus:outline-none">
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div>
+                <ul>
+                    {navLinks.map(link => (
+                        <li class="mb-2">
+                            <a class="block p-3 text-base font-semibold text-gray-700 hover:bg-purple-50 hover:text-purple-700 rounded transition duration-300" href={link.href}>
+                                {link.name}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+            <div class="mt-auto pt-6 border-t border-gray-100">
+                <a href="/contact" class="block w-full text-center px-4 py-3 bg-purple-700 text-white rounded-lg font-semibold hover:bg-purple-800 transition duration-300">
+                    Get Started
+                </a>
+                <p class="my-4 text-xs text-center text-gray-500">
+                    <span>Copyright © {new Date().getFullYear()}</span>
+                </p>
+            </div>
+        </nav>
+    </div>
+
+    <div id="navbar-backdrop" class="fixed inset-0 bg-gray-900 bg-opacity-50 z-40 hidden lg:hidden"></div>
+</header>
+
+<script is:inline>
+    document.addEventListener('DOMContentLoaded', function() {
+        const burgerButton = document.getElementById('navbar-burger');
+        const closeButton = document.getElementById('navbar-close');
+        const mobileMenu = document.getElementById('navbar-menu');
+        const backdrop = document.getElementById('navbar-backdrop');
+
+        function openMenu() {
+            mobileMenu.classList.remove('translate-x-full');
+            mobileMenu.classList.add('translate-x-0');
+            backdrop.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Evita el scroll del body
+        }
+
+        function closeMenu() {
+            mobileMenu.classList.remove('translate-x-0');
+            mobileMenu.classList.add('translate-x-full');
+            backdrop.classList.add('hidden');
+            document.body.style.overflow = ''; // Habilita el scroll del body
+        }
+
+        burgerButton.addEventListener('click', openMenu);
+        closeButton.addEventListener('click', closeMenu);
+        backdrop.addEventListener('click', closeMenu);
+
+        // Cerrar el menú si se redimensiona la ventana a un tamaño grande
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024) { // 1024px es el breakpoint 'lg' de Tailwind por defecto
+                closeMenu();
+            }
+        });
+    });
+</script>

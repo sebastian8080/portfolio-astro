@@ -1,0 +1,31 @@
+---
+interface Props{
+    nombre: string,
+    descripcion: string,
+    imagen: string,
+    icono?: string,
+    precio?: string 
+}
+
+//Desestructuracion de las propiedades recibidas
+const { nombre, descripcion, imagen, icono, precio } = Astro.props;
+---
+
+<div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl max-w-sm w-full">
+    <div class="relative w-full h-52 overflow-hidden">
+        <img src={imagen} alt={`Imagen de ${nombre}`} class="w-full h-full object-cover" loading="lazy" />
+        {icono && (
+            <i class={`absolute top-4 right-4 text-purple-700 text-4xl bg-white bg-opacity-90 rounded-full p-2.5 shadow-md ${icono}`}></i>
+        )}
+    </div>
+    <div class="p-5 flex flex-col flex-grow">
+        <h3 class="text-2xl text-gray-800 font-bold mb-2 text-center">{nombre}</h3>
+        <p class="text-base text-gray-600 leading-relaxed mb-4 flex-grow">{descripcion}</p>
+        {precio && (
+            <p class="text-lg font-semibold text-purple-700 text-center mb-5">{precio}</p>
+        )}
+        <a href={`/servicios/${nombre.toLowerCase().replace(/\s/g, '-')}`} class="block w-fit mx-auto bg-purple-700 text-white py-3 px-6 rounded-lg font-semibold text-center transition-colors duration-300 hover:bg-purple-800">
+            Ver Detalles
+        </a>
+    </div>
+</div>
