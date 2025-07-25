@@ -1,16 +1,18 @@
 ---
 const navLinks = [
-    { name: 'Home', href: '/'},
-    { name: 'About Us', href: '/about'},
-    { name: 'Services', href: '/services'},
-    { name: 'Contact', href: '/contact'},
+    { name: 'Inicio', href: '/'},
+    { name: 'Sobre Mí', href: '/sobre-mi'},
+    { name: 'Servicios', href: '/servicios'},
+    { name: 'Contacto', href: '/contacto'},
 ]
+
+const logoPath = '/assets/logo-sa-tech-transparente.png';
 ---
 
 <header class="bg-white shadow-md sticky top-0 z-40">
     <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
         <a class="text-3xl font-extrabold text-purple-700 leading-none" href="/">
-            Mi Empresa
+            <img width="200px" src={logoPath} alt="Logo de SA TECH">
         </a>
 
         <ul class="hidden lg:flex lg:space-x-8 items-center">
@@ -22,8 +24,8 @@ const navLinks = [
                 </li>
             ))}
             <li>
-                <a href="/contact" class="ml-6 px-6 py-2 bg-purple-700 text-white rounded-lg font-semibold hover:bg-purple-800 transition duration-300">
-                    Get Started
+                <a href="/contacto" class="ml-6 px-6 py-2 bg-purple-700 text-white rounded-lg font-semibold hover:bg-purple-800 transition duration-300">
+                    ¡Empecemos!
                 </a>
             </li>
         </ul>
@@ -42,7 +44,7 @@ const navLinks = [
         <nav class="flex flex-col h-full py-6 px-6">
             <div class="flex items-center justify-between mb-8">
                 <a class="text-2xl font-extrabold text-purple-700 leading-none" href="/">
-                    Mi Empresa
+                    <img width="100px" src={logoPath} alt="Logo de SA TECH para mobile">
                 </a>
                 <button id="navbar-close" class="text-gray-400 hover:text-gray-600 focus:outline-none">
                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -63,7 +65,7 @@ const navLinks = [
             </div>
             <div class="mt-auto pt-6 border-t border-gray-100">
                 <a href="/contact" class="block w-full text-center px-4 py-3 bg-purple-700 text-white rounded-lg font-semibold hover:bg-purple-800 transition duration-300">
-                    Get Started
+                    ¡Empecemos!
                 </a>
                 <p class="my-4 text-xs text-center text-gray-500">
                     <span>Copyright © {new Date().getFullYear()}</span>

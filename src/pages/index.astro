@@ -1,25 +1,68 @@
 ---
-import AboutSection from "../components/AboutSection.astro";
-import Gallery from "../components/Gallery.astro";
 import Layout from "../layouts/layout.astro";
+import Gallery from "../components/Gallery.astro";
 
-const nombre = "Sebastian Armijos";
-
-const images = [
-  { src: '/assets/95309.jpg', alt: 'Proyecto 1' },
-  { src: '/assets/2150010125.jpg', alt: 'Proyecto 2' },
+// Datos para la sección "Cómo puedo ayudarte" (para el componente Gallery)
+const servicesGallery = [
+    { src: '/assets/responsive.jpg', alt: 'Diseño Web Responsivo', title: 'Diseño Responsivo', href: '/servicios' },
+    { src: '/assets/backend.jpg', alt: 'Desarrollo Backend', title: 'Desarrollo Backend', href: '/servicios' },
+    { src: '/assets/frontend.jpg', alt: 'Desarrollo Frontend', title: 'Desarrollo Frontend', href: '/servicios' },
+    { src: '/assets/optimizacion-motores-busqueda-seo.jpg', alt: 'Optimización SEO', title: 'Optimización SEO', href: '/servicios' },
 ];
+
+const videoBannerHomePath = "/assets/video/video-banner-home.mp4";
 ---
 
 <Layout title="Sebastian Armijos - Desarrollador Web">
-	<section class="h-[90vh] w-100 flex items-center justify-center">
-		<div class="text-center">
-			<h1 class="text-3xl md:text-5xl font-bold">Hola, soy Sebastian 👋</h1>
-			<p class="text-lg md:text-xl mt-4 text-gray-600">Desarrollador web enfocado en crear experiencias digitales rápidas y modernas</p>
-			<a href="/projects" class="mt-6 inline-block bg-blue-600 text-white px-5 py-2 rounded-lg">Ver mis proyectos</a>
-		</div>
-	</section>
+    <section class="relative h-[80vh] md:h-[90vh] flex items-center justify-center overflow-hidden bg-gray-900">
+        <video
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="auto"
+            class="absolute top-0 left-0 w-full h-full object-cover opacity-30"
+            poster="/assets/poster-home-banner.jpg"
+        >
+            <source src="/videos/hero-background.webm" type="video/webm">
+            <source src={videoBannerHomePath} type="video/mp4">
+            Tu navegador no soporta el tag de video.
+        </video>
 
-	<Gallery images={images} />
+        <div class="relative z-10 text-center text-white p-6 bg-black bg-opacity-40 rounded-lg max-w-2xl mx-auto shadow-lg">
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
+                Hola, soy <span class="text-purple-400">Sebastián Armijos</span> 👋
+            </h1>
+            <p class="text-lg md:text-2xl mt-4 font-light leading-relaxed">
+                Desarrollador web enfocado en crear <strong>experiencias digitales rápidas y modernas</strong> que impulsan tu negocio.
+            </p>
+            <div class="mt-8 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="/servicios" class="inline-block bg-purple-600 text-white font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-purple-700 transition duration-300 transform hover:scale-105">
+                    Mis Servicios
+                </a>
+                <a href="/contacto" class="inline-block bg-white text-purple-700 font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-gray-100 transition duration-300 transform hover:scale-105">
+                    Hablemos
+                </a>
+            </div>
+        </div>
+    </section>
 
+    <section class="py-16 md:py-24 bg-gray-50">
+        <h2 class="text-4xl font-extrabold text-gray-800 text-center mb-12">
+            ¿Cómo puedo <span class="text-purple-700">ayudarte?</span>
+        </h2>
+        <Gallery images={servicesGallery} />
+    </section>
+
+    <section class="py-16 md:py-24 bg-white text-center">
+        <h2 class="text-4xl font-extrabold text-gray-800 mb-8">
+            ¿Listo para construir algo <span class="text-purple-700">increíble?</span>
+        </h2>
+        <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-10">
+            Explora mis proyectos más recientes o contáctame directamente para discutir tu próxima gran idea.
+        </p>
+        <a href="/proyectos" class="inline-block bg-purple-700 text-white font-semibold px-10 py-4 rounded-lg shadow-lg hover:bg-purple-800 transition duration-300 transform hover:scale-105">
+            Ver Proyectos
+        </a>
+    </section>
 </Layout>
