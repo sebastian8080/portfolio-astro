@@ -4,11 +4,12 @@ interface Props{
     descripcion: string,
     imagen: string,
     icono?: string,
-    precio?: string 
+    precio?: string,
+    url?: string
 }
 
 //Desestructuracion de las propiedades recibidas
-const { nombre, descripcion, imagen, icono, precio } = Astro.props;
+const { nombre, descripcion, imagen, icono, precio, url } = Astro.props;
 ---
 
 <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl max-w-sm w-full">
@@ -24,7 +25,7 @@ const { nombre, descripcion, imagen, icono, precio } = Astro.props;
         {precio && (
             <p class="text-lg font-semibold text-purple-700 text-center mb-5">{precio}</p>
         )}
-        <a href={`/servicios/${nombre.toLowerCase().replace(/\s/g, '-')}`} class="block w-fit mx-auto bg-purple-700 text-white py-3 px-6 rounded-lg font-semibold text-center transition-colors duration-300 hover:bg-purple-800">
+        <a href={url} class="block w-fit mx-auto bg-purple-700 text-white py-3 px-6 rounded-lg font-semibold text-center transition-colors duration-300 hover:bg-purple-800">
             Ver Detalles
         </a>
     </div>

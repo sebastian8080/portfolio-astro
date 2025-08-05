@@ -15,7 +15,7 @@ const { images } = Astro.props;
 
 <section class="py-10">
     <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
-        <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6 lg:grid-cols-4 xl:gap-8">
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 lg:grid-cols-4 xl:gap-8">
             {images.map(image => (
                 <a href={image.href || '#'}
                    class="group relative flex h-48 sm:h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-72 transform transition-transform duration-300 hover:scale-[1.03]">
