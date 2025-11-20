@@ -1,0 +1,66 @@
+---
+// Contenido de las Preguntas Frecuentes (FAQ) optimizado para SEO
+const faqs = [
+  {
+    question:
+      "¿Dónde puedo encontrar un desarrollador web o de software confiable en Cuenca, Ecuador?",
+    answer:
+      "Si estás buscando un desarrollador profesional con experiencia local en Cuenca, has llegado al lugar correcto. Mi portafolio demuestra la capacidad de entregar soluciones personalizadas, desde sitios web modernos con Astro y React hasta sistemas complejos de gestión.",
+  },
+  {
+    question:
+      "¿Para qué sirve contratar a un desarrollador de software individual en lugar de una agencia?",
+    answer:
+      "Contratar a un desarrollador individual como yo garantiza comunicación directa, costos más eficientes y una toma de decisiones más rápida. Obtienes un servicio personalizado, con un único punto de contacto, y un compromiso directo con la calidad de tu proyecto.",
+  },
+  {
+    question:
+      "¿Qué tipos de proyectos web o aplicaciones móviles puedes construir?",
+    answer:
+      "Me especializo en construir páginas web corporativas rápidas, tiendas online, landing pages optimizadas para ventas y aplicaciones web personalizadas (SaaS) usando tecnologías modernas como Next.js y Node.js. Mi enfoque principal es la velocidad y la experiencia del usuario.",
+  },
+  {
+    question:
+      "¿Ofreces cotizaciones o asesoría gratuita para mi idea de proyecto en Cuenca?",
+    answer:
+      "Sí, ofrezco una consulta inicial gratuita para discutir tu idea o proyecto. Analizaremos tus objetivos, el alcance del trabajo, las tecnologías más adecuadas y te proporcionaré una cotización transparente. Puedes contactarme directamente para agendar una reunión.",
+  },
+];
+---
+
+<section class="py-16 px-4 md:px-56">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+    <div class="lg:sticky lg:top-40 lg:self-start">
+      <h2
+        class="text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100 mb-4"
+      >
+        Preguntas Frecuentes
+      </h2>
+      <p class="text-lg text-gray-500 dark:text-gray-400">
+        ¿No encuentras la respuesta que buscas? Ponte en contacto con nuestro
+        equipo de
+        <a
+          href="/contacto"
+          class="text-purple-600 dark:text-purple-400 hover:text-purple-500 font-medium transition duration-150 ease-in-out underline"
+        >
+          atención al cliente
+        </a>
+      </p>
+    </div>
+
+    <div class="space-y-12">
+      {
+        faqs.map((faq) => (
+          <div class="pb-4 border-b border-gray-100 dark:border-gray-800 last:border-b-0">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+              {faq.question}
+            </h3>
+            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+              {faq.answer}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
