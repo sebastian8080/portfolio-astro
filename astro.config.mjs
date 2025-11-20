@@ -9,5 +9,6 @@ export default defineConfig({
       // Desactiva la integración automática
       applyBaseStyles: false,
     }),
+    sitemap(),
   ],
 });
