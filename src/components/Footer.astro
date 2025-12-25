@@ -1,86 +1,138 @@
 ---
-const logoPath = "/assets/logo-sa-tech-blanco.png";
+const logoPath = "/assets/logo-sa-tech-blanco.webp";
 
 const footerNavLinks = [
-    { name: 'Inicio', href: '/'},
-    { name: 'Sobre Mí', href: '/sobre-mi'},
-    { name: 'Servicios', href: '/servicios'},
-    { name: 'Contacto', href: '/contacto'},
-]
+  { name: "Inicio", href: "/" },
+  { name: "Servicios", href: "/servicios" },
+  { name: "Sobre Mí", href: "/sobre-mi" },
+  { name: "Contacto", href: "/contacto" },
+];
 
 const socialLinks = [
-    { name: 'LinkedIn', icon: 'fab fa-linkedin', href: 'https://www.linkedin.com/in/sebastian-armijos-467b171b2/'},
-    { name: 'GitHub', icon: 'fab fa-github', href: 'https://github.com/sebastian8080'},
-    { name: 'WhatsApp', icon: 'fab fa-whatsapp', href: 'https://api.whatsapp.com/send?phone=593964085651&text=Hola%20Sebastian,%20te%20escribo%20porque%20estoy%20interesado%20en%20uno%20de%20tus%20servicios'},
-    { name: 'Instagram', icon: 'fab fa-instagram', href: 'https://www.instagram.com/sebastian.armijos/'},
-    { name: 'Facebook', icon: 'fab fa-facebook', href: 'https://www.facebook.com/sebastian.armijos.56/'},
-]
+  {
+    name: "LinkedIn",
+    icon: "fab fa-linkedin",
+    href: "https://www.linkedin.com/in/sebastian-armijos-467b171b2/",
+  },
+  {
+    name: "GitHub",
+    icon: "fab fa-github",
+    href: "https://github.com/sebastian8080",
+  },
+  {
+    name: "WhatsApp",
+    icon: "fab fa-whatsapp",
+    href: "https://api.whatsapp.com/send?phone=593964085651&text=Hola%20Sebastian,%20te%20escribo%20porque%20estoy%20interesado%20en%20uno%20de%20tus%20servicios",
+  },
+  {
+    name: "Instagram",
+    icon: "fab fa-instagram",
+    href: "https://www.instagram.com/sebastian.armijos/",
+  },
+  {
+    name: "Facebook",
+    icon: "fab fa-facebook",
+    href: "https://www.facebook.com/sebastian.armijos.56/",
+  },
+];
 
 const currentYear = new Date().getFullYear();
 ---
 
 <footer class="bg-gray-800 text-white py-12 px-6">
-    <div class="container mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 text-center md:text-left">
+  <div class="container mx-auto">
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 text-center md:text-left"
+    >
+      <div class="col-span-1 md:col-span-1 lg:col-span-1">
+        <a
+          class="text-3xl font-extrabold text-purple-400 hover:text-purple-300 transition-colors duration-300 mb-4 inline-block"
+          href="/"
+        >
+          <img
+            width="200px"
+            src={logoPath}
+            alt="Logo blanco de SATECH"
+            title="Logo blanco de SATECH"
+            loading="lazy"
+          />
+        </a>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Creando soluciones web innovadoras y experiencias digitales que
+          impulsan el éxito de tu negocio.
+        </p>
+      </div>
 
-            <div class="col-span-1 md:col-span-1 lg:col-span-1">
-                <a class="text-3xl font-extrabold text-purple-400 hover:text-purple-300 transition-colors duration-300 mb-4 inline-block" href="/">
-                    <img width="200px" src={logoPath} alt="Logo de SA TECH en el footer">
+      <div class="col-span-1">
+        <span class="text-xl font-semibold mb-4 text-purple-300"
+          >Navegación</span
+        >
+        <ul class="space-y-2">
+          {
+            footerNavLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-gray-400 hover:text-purple-400 transition-colors duration-300 text-base"
+                >
+                  {link.name}
                 </a>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                    Creando soluciones web innovadoras y experiencias digitales que impulsan el éxito de tu negocio.
-                </p>
-            </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
 
-            <div class="col-span-1">
-                <h3 class="text-xl font-semibold mb-4 text-purple-300">Navegación</h3>
-                <ul class="space-y-2">
-                    {footerNavLinks.map(link => (
-                        <li>
-                            <a href={link.href} class="text-gray-400 hover:text-purple-400 transition-colors duration-300 text-base">
-                                {link.name}
-                            </a>
-                        </li>
-                    ))}
-                </ul>
-            </div>
+      <div class="col-span-1">
+        <span class="text-xl font-semibold mb-4 text-purple-300">Contacto</span>
+        <ul class="space-y-2 text-gray-400">
+          <li class="flex items-center justify-center md:justify-start">
+            <a href="mailto:sebas25211@hotmail.com">
+              <i class="fas fa-envelope mr-3 text-lg"></i>
+              <span>sebas25211@hotmail.com</span>
+            </a>
+          </li>
+          <li class="flex items-center justify-center md:justify-start">
+            <a href="tel:+593964085651">
+              <i class="fas fa-phone-alt mr-3 text-lg"></i>
+              <span>+593 96 408 5651</span>
+            </a>
+          </li>
+          <li class="flex items-center justify-center md:justify-start">
+            <i class="fas fa-map-marker-alt mr-3 text-lg"></i>
+            <span>Cuenca, Azuay, Ecuador</span>
+          </li>
+        </ul>
+      </div>
 
-            <div class="col-span-1">
-                <h3 class="text-xl font-semibold mb-4 text-purple-300">Contacto</h3>
-                <ul class="space-y-2 text-gray-400">
-                    <li class="flex items-center justify-center md:justify-start">
-                        <i class="fas fa-envelope mr-3 text-lg"></i>
-                        <span>sebas25211@hotmail.com</span>
-                    </li>
-                    <li class="flex items-center justify-center md:justify-start">
-                        <i class="fas fa-phone-alt mr-3 text-lg"></i>
-                        <span>+593 96 408 5651</span>
-                    </li>
-                    <li class="flex items-center justify-center md:justify-start">
-                        <i class="fas fa-map-marker-alt mr-3 text-lg"></i>
-                        <span>Cuenca, Azuay, Ecuador</span>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="col-span-1 lg:col-span-1">
-                 <h3 class="text-xl font-semibold mb-4 text-purple-300">Sígueme</h3>
-                 <div class="flex justify-center md:justify-start space-x-6">
-                     {socialLinks.map(link => (
-                         <a href={link.href} target="_blank" rel="noopener noreferrer"
-                            aria-label={`Link to my ${link.name}`}
-                            class="text-gray-400 hover:text-purple-400 transition-colors duration-300 transform hover:scale-110">
-                             <i class={`${link.icon} text-3xl text-white`}></i>
-                         </a>
-                     ))}
-                 </div>
-            </div>
-
+      <div class="col-span-1 lg:col-span-1">
+        <span class="text-xl font-semibold mb-4 text-purple-300">Sígueme</span>
+        <div class="flex justify-center md:justify-start space-x-6">
+          {
+            socialLinks.map((link) => (
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Link to my ${link.name}`}
+                class="text-gray-400 hover:text-purple-400 transition-colors duration-300 transform hover:scale-110"
+              >
+                <i class={`${link.icon} text-3xl text-white`} />
+              </a>
+            ))
+          }
         </div>
-
-        <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-500 text-sm">
-            <p>&copy; {currentYear} <strong>SA TECH</strong>. Todos los derechos reservados.</p>
-            <p class="mt-2">Desarrollado por Sebastián Armijos</p>
-        </div>
+      </div>
     </div>
+
+    <div
+      class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-500 text-sm"
+    >
+      <p>
+        &copy; {currentYear}
+        <strong>SA TECH</strong>. Todos los derechos reservados.
+      </p>
+      <p class="mt-2">Desarrollado por Sebastián Armijos</p>
+    </div>
+  </div>
 </footer>

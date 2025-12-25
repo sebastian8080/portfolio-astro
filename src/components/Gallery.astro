@@ -1,34 +1,45 @@
 ---
 interface ImageItem {
-    src: string;
-    alt: string;
-    title: string; // Añadimos un título para la superposición
-    href?: string; // Opcional: un enlace para cada elemento de la galería
+  src: string;
+  alt: string;
+  title: string;
+  href?: string;
 }
 
 interface Props {
-    images: ImageItem[];
+  images: ImageItem[];
 }
 
 const { images } = Astro.props;
 ---
 
 <section class="py-10">
-    <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
-        <div class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 lg:grid-cols-4 xl:gap-8">
-            {images.map(image => (
-                <a href={image.href || '#'}
-                   class="group relative flex h-48 sm:h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-72 transform transition-transform duration-300 hover:scale-[1.03]">
-                    <img src={image.src} loading="lazy" alt={image.alt}
-                         class="absolute inset-0 h-full w-full object-cover object-center transition duration-500 group-hover:scale-110" />
+  <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+    <div
+      class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 lg:grid-cols-3 xl:gap-8"
+    >
+      {
+        images.map((image) => (
+          <a
+            href={image.href || "#"}
+            class="group relative flex h-48 sm:h-64 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-72 transform transition-transform duration-300 hover:scale-[1.03]"
+          >
+            <img
+              src={image.src}
+              loading="lazy"
+              alt={image.alt}
+              class="absolute inset-0 h-full w-full object-cover object-center transition duration-500 group-hover:scale-110"
+              title={image.title}
+            />
 
-                    <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-60"></div>
+            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-60" />
 
-                    <span class="relative ml-4 mb-3 inline-block text-xl md:text-2xl font-bold text-white z-10">
-                        {image.title}
-                    </span>
-                </a>
-            ))}
-        </div>
+            <h3 class="relative ml-4 mb-3 inline-block text-xl md:text-2xl font-bold text-white z-10">
+              {image.title}
+            </h3>
+          </a>
+        ))
+      }
     </div>
+  </div>
 </section>

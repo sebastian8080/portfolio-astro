@@ -6,6 +6,8 @@ import FloatingWhatsapp from "../components/FloatingWhatsapp.astro";
 import { ViewTransitions } from "astro:transitions";
 
 const { title, description } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
@@ -15,9 +17,11 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
 
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, snippet" />
 
     <meta name="description" content={description} />
+
+    <link rel="canonical" href={canonicalURL} />
 
     <link rel="icon" href="/icon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/tailwind.css" />
