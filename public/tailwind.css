@@ -2161,10 +2161,6 @@ video {
   padding-bottom: 1.5rem;
 }
 
-.pb-12 {
-  padding-bottom: 3rem;
-}
-
 .pb-16 {
   padding-bottom: 4rem;
 }
@@ -2191,6 +2187,10 @@ video {
 
 .pt-8 {
   padding-top: 2rem;
+}
+
+.pb-12 {
+  padding-bottom: 3rem;
 }
 
 .text-center {
@@ -3193,6 +3193,10 @@ video {
 
   .lg\:h-\[500px\] {
     height: 500px;
+  }
+
+  .lg\:h-\[600px\] {
+    height: 600px;
   }
 
   .lg\:w-96 {
