@@ -11,4 +11,10 @@ export default defineConfig({
     }),
     sitemap(),
   ],
+  markdown: {
+    shikiConfig: {
+      theme: "one-dark-pro",
+      wrap: true,
+    },
+  },
 });

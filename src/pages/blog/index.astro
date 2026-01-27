@@ -1,0 +1,106 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/layout.astro"; // Ajusta la ruta según tu estructura
+import BlogCard from "../../components/BlogCard.astro";
+import BlogFilters from "../../components/BlogFilters.astro";
+
+// Obtener todos los posts del blog que no sean drafts
+const allPosts = await getCollection("blog", ({ data }) => {
+  return data.draft !== true;
+});
+
+// Ordenar posts por fecha (más recientes primero)
+const sortedPosts = allPosts.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<Layout
+  title="Blog | Sebastián Armijos"
+  description="Artículos sobre desarrollo web, programación y tecnología. Comparto mis conocimientos y experiencias como desarrollador."
+>
+  <!-- Hero Section -->
+  <section
+    class="bg-gradient-to-br from-purple-600 to-indigo-700 text-white py-20 md:py-28"
+  >
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          Blog de Desarrollo
+        </h1>
+        <p class="text-lg md:text-xl text-purple-100 leading-relaxed">
+          Comparto mis conocimientos, experiencias y aprendizajes sobre
+          desarrollo web, programación y las últimas tendencias en tecnología.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Content -->
+  <section class="py-16 md:py-20 bg-gray-50">
+    <div class="container mx-auto px-4 md:px-6">
+      <!-- Filtros y Búsqueda -->
+      <BlogFilters />
+
+      <!-- Grid de Posts -->
+      {
+        sortedPosts.length > 0 ? (
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {sortedPosts.map((post) => (
+              <BlogCard
+                title={post.data.title}
+                description={post.data.description}
+                pubDate={post.data.pubDate}
+                slug={post.slug}
+                image={post.data.image}
+                tags={post.data.tags}
+              />
+            ))}
+          </div>
+        ) : (
+          <div class="text-center py-16">
+            <svg
+              class="mx-auto h-24 w-24 text-gray-400 mb-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              />
+            </svg>
+            <h3 class="text-2xl font-semibold text-gray-700 mb-2">
+              No hay artículos todavía
+            </h3>
+            <p class="text-gray-500">
+              Pronto empezaré a compartir contenido interesante.
+            </p>
+          </div>
+        )
+      }
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-white py-16 md:py-20">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          ¿Tienes un proyecto en mente?
+        </h2>
+        <p class="text-lg text-gray-600 mb-8">
+          Hablemos sobre cómo puedo ayudarte a hacer realidad tu idea.
+        </p>
+        <a
+          href="/contacto"
+          class="inline-block bg-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-purple-700 transition-colors shadow-lg hover:shadow-xl"
+        >
+          Contáctame
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

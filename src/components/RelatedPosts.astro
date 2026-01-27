@@ -1,0 +1,60 @@
+---
+import { getCollection } from "astro:content";
+import BlogCard from "./BlogCard.astro";
+
+interface Props {
+  currentSlug: string;
+  tags: string[];
+  limit?: number;
+}
+
+const { currentSlug, tags, limit = 3 } = Astro.props;
+
+// Obtener todos los posts excepto el actual
+const allPosts = await getCollection("blog", ({ data, slug }) => {
+  return data.draft !== true && slug !== currentSlug;
+});
+
+// Calcular relevancia basada en tags compartidos
+const postsWithScore = allPosts.map((post) => {
+  const sharedTags = post.data.tags.filter((tag) => tags.includes(tag));
+  return {
+    post,
+    score: sharedTags.length,
+  };
+});
+
+// Ordenar por relevancia y luego por fecha
+const relatedPosts = postsWithScore
+  .sort((a, b) => {
+    if (b.score !== a.score) {
+      return b.score - a.score;
+    }
+    return b.post.data.pubDate.valueOf() - a.post.data.pubDate.valueOf();
+  })
+  .slice(0, limit)
+  .map((item) => item.post);
+---
+
+{
+  relatedPosts.length > 0 && (
+    <section class="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">
+        Artículos Relacionados
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {relatedPosts.map((post) => (
+          <BlogCard
+            title={post.data.title}
+            description={post.data.description}
+            pubDate={post.data.pubDate}
+            slug={post.slug}
+            image={post.data.image}
+            tags={post.data.tags}
+          />
+        ))}
+      </div>
+    </section>
+  )
+}

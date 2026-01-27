@@ -1,7 +1,7 @@
 export default {
-  content: ['./src/**/*.{astro,html,js,jsx,ts,tsx,vue,md,mdx}'],
+  content: ["./src/**/*.{astro,html,js,jsx,ts,tsx,vue,md,mdx}"],
   theme: {
     extend: {},
   },
-  plugins: [],
-}
+  plugins: [require("@tailwindcss/typography")],
+};
