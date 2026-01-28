@@ -29,12 +29,10 @@
         class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all outline-none text-base"
       />
     </div>
-
     <!-- Contador de resultados -->
     <div id="search-results" class="text-sm text-gray-600 hidden">
       <span id="results-count"></span>
     </div>
-
     <!-- Mensaje cuando no hay resultados -->
     <div id="no-results" class="hidden text-center py-12">
       <svg
@@ -57,7 +55,6 @@
     </div>
   </div>
 </div>
-
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const searchInput = document.getElementById(
@@ -68,34 +65,31 @@
     const resultsCount = document.getElementById("results-count");
     const noResults = document.getElementById("no-results");
     const blogGrid = document.querySelector(".grid");
-
     if (!searchInput || !blogCards.length) return;
-
     const totalPosts = blogCards.length;
-
     function filterArticles() {
       const searchTerm = searchInput.value.toLowerCase().trim();
       let visibleCount = 0;
-
       blogCards.forEach((card) => {
         const title =
           card.querySelector("h2")?.textContent?.toLowerCase() || "";
         const description =
           card.querySelector("p")?.textContent?.toLowerCase() || "";
-
+        const tags = Array.from(card.querySelectorAll("span"))
+          .map((tag) => tag.textContent?.toLowerCase() || "")
+          .join(" ");
         const matchesSearch =
           searchTerm === "" ||
           title.includes(searchTerm) ||
-          description.includes(searchTerm);
-
+          description.includes(searchTerm) ||
+          tags.includes(searchTerm);
         if (matchesSearch) {
-          card.classList.remove("hidden");
+          (card as HTMLElement).classList.remove("hidden");
           visibleCount++;
         } else {
-          card.classList.add("hidden");
+          (card as HTMLElement).classList.add("hidden");
         }
       });
-
       // Actualizar contador de resultados
       if (searchTerm !== "") {
         searchResults?.classList.remove("hidden");
@@ -105,7 +99,6 @@
       } else {
         searchResults?.classList.add("hidden");
       }
-
       // Mostrar mensaje si no hay resultados
       if (visibleCount === 0) {
         noResults?.classList.remove("hidden");
@@ -115,7 +108,6 @@
         blogGrid?.classList.remove("hidden");
       }
     }
-
     // Event listener para el buscador con debounce
     let debounceTimer: ReturnType<typeof setTimeout>;
     searchInput.addEventListener("input", () => {
