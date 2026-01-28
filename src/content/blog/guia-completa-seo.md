@@ -1,7 +1,7 @@
 ---
 title: "Guía Completa de SEO para Desarrolladores Web"
 description: "Todo lo que necesitas saber sobre SEO técnico para mejorar el posicionamiento de tus sitios web en los motores de búsqueda."
-pubDate: 2025-01-25
+pubDate: 2026-01-25
 author: "Sebastián Armijos"
 image:
   url: "/assets/blog/guia-completa-seo.webp"

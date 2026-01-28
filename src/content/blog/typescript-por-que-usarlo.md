@@ -1,7 +1,7 @@
 ---
 title: "TypeScript: Por Qué Deberías Usarlo en Tus Proyectos"
 description: "Descubre los beneficios de TypeScript y por qué se ha convertido en el estándar para desarrollo de aplicaciones JavaScript modernas."
-pubDate: 2025-01-10
+pubDate: 2026-01-10
 author: "Sebastián Armijos"
 image:
   url: "/assets/blog/typescript-por-que-usarlo.webp"
