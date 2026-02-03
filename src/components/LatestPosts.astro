@@ -1,0 +1,93 @@
+---
+// LatestPosts.astro
+// Componente para mostrar los últimos artículos del blog
+import { getCollection } from "astro:content";
+
+interface Props {
+  currentSlug?: string; // Para excluir el artículo actual
+  limit?: number;
+  class?: string;
+}
+
+const { currentSlug, limit = 3, class: className = "" } = Astro.props;
+
+// Obtener todos los posts publicados
+const allPosts = await getCollection("blog", ({ data }) => {
+  return data.draft !== true;
+});
+
+// Filtrar el post actual si existe y ordenar por fecha
+const latestPosts = allPosts
+  .filter((post) => post.slug !== currentSlug)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, limit);
+
+// Función para formatear fecha
+const formatDate = (date: Date) => {
+  return new Intl.DateTimeFormat("es-ES", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  }).format(date);
+};
+---
+
+<div class={`bg-white rounded-2xl shadow-lg p-6 ${className}`}>
+  <h3 class="text-lg font-bold text-gray-900 mb-6">Últimos Artículos</h3>
+
+  <div class="space-y-4">
+    {
+      latestPosts.map((post) => (
+        <article class="group">
+          <a
+            href={`/blog/${post.slug}`}
+            class="block hover:bg-gray-50 rounded-lg p-3 transition-colors duration-300"
+          >
+            {/* Imagen miniatura si existe */}
+            {post.data.image && (
+              <div class="mb-3 overflow-hidden rounded-lg">
+                <img
+                  src={post.data.image.url}
+                  alt={post.data.image.alt}
+                  class="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+            )}
+
+            {/* Título */}
+            <h4 class="font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-purple-600 transition-colors">
+              {post.data.title}
+            </h4>
+
+            {/* Fecha */}
+            <time
+              datetime={post.data.pubDate.toISOString()}
+              class="text-xs text-gray-500"
+            >
+              {formatDate(post.data.pubDate)}
+            </time>
+
+            {/* Tags (opcional, mostrar solo el primero) */}
+            {post.data.tags && post.data.tags.length > 0 && (
+              <div class="mt-2">
+                <span class="inline-block bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs font-medium">
+                  {post.data.tags[0]}
+                </span>
+              </div>
+            )}
+          </a>
+        </article>
+      ))
+    }
+  </div>
+
+  {/* Botón Ver más artículos */}
+  <div class="mt-6 pt-6 border-t border-gray-200">
+    <a
+      href="/blog"
+      class="block w-full text-center bg-purple-600 text-white px-4 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors duration-300 shadow-md hover:shadow-lg"
+    >
+      Ver más artículos
+    </a>
+  </div>
+</div>
