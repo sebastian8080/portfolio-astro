@@ -195,7 +195,7 @@ Google indexa primero la versión móvil de tu sitio:
 - Bing Webmaster Tools
 
 ### Para Auditoría:
-- Lighthouse (Chrome DevTools)
+- Lighthouse (Chrome DevTools para SEO)
 - PageSpeed Insights
 - Screaming Frog SEO Spider
 
