@@ -191,7 +191,7 @@ Generalmente, los precios dependen de:
 - Objetivos de posicionamiento  
 - Tiempo de ejecución  
 
-En Ecuador, los servicios SEO pueden comenzar desde planes básicos hasta estrategias completas con costos más elevados.
+En Ecuador, los **servicios de SEO** pueden comenzar desde planes básicos hasta estrategias completas con costos más elevados.
 
 ---
 
