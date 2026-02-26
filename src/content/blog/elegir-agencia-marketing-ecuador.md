@@ -64,6 +64,8 @@ En pocas palabras, trabajan para que tu marca sea visible, atractiva y competiti
 
 Muchas empresas intentan manejar su marketing internamente. Sin embargo, esto puede ser complicado si no se cuenta con experiencia ni herramientas profesionales.
 
+Si estás buscando **empresas de marketing en Ecuador** debes tener en cuenta lo siguiente:
+
 ### Acceso a especialistas
 
 Una agencia reúne expertos en diferentes áreas. Es como tener un equipo completo trabajando para tu negocio sin necesidad de contratar varios empleados.
