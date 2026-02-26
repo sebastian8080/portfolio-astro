@@ -96,6 +96,8 @@ Ofrecen soluciones completas que incluyen marketing tradicional y digital.
 
 Elegir el tipo correcto depende de tus objetivos y necesidades.
 
+Si estás buscando **agencias de marketing digital en Ecuador**, puedes contactarnos mediante <a href="/contacto">este enlace</a>.
+
 ---
 
 ## Servicios más comunes que ofrecen
