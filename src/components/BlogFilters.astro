@@ -6,11 +6,9 @@
   <div class="flex flex-col gap-4">
     <!-- Buscador -->
     <div class="relative max-w-2xl w-full">
-      <div
-        class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"
-      >
+      <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
         <svg
-          class="h-5 w-5 text-gray-400"
+          class="h-5 w-5 text-gray-400 dark:text-gray-500"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -19,24 +17,33 @@
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
-            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+          />
         </svg>
       </div>
       <input
         type="text"
         id="search-input"
         placeholder="Buscar artículos por título o descripción..."
-        class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all outline-none text-base"
+        class="w-full pl-12 pr-4 py-4 rounded-xl text-base outline-none transition-all
+               bg-white dark:bg-gray-800
+               text-gray-900 dark:text-gray-100
+               placeholder-gray-400 dark:placeholder-gray-500
+               border-2 border-gray-200 dark:border-gray-700
+               focus:ring-2 focus:ring-purple-500 focus:border-transparent
+               dark:focus:ring-purple-600"
       />
     </div>
+
     <!-- Contador de resultados -->
-    <div id="search-results" class="text-sm text-gray-600 hidden">
+    <div id="search-results" class="text-sm text-gray-600 dark:text-gray-400 hidden">
       <span id="results-count"></span>
     </div>
-    <!-- Mensaje cuando no hay resultados -->
+
+    <!-- Sin resultados -->
     <div id="no-results" class="hidden text-center py-12">
       <svg
-        class="mx-auto h-16 w-16 text-gray-400 mb-4"
+        class="mx-auto h-16 w-16 text-gray-400 dark:text-gray-600 mb-4"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -46,60 +53,72 @@
           stroke-linejoin="round"
           stroke-width="2"
           d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-        ></path>
+        />
       </svg>
-      <h3 class="text-xl font-semibold text-gray-700 mb-2">
+      <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-2">
         No se encontraron artículos
       </h3>
-      <p class="text-gray-500">Intenta con otros términos de búsqueda</p>
+      <p class="text-gray-500 dark:text-gray-500">Intenta con otros términos de búsqueda</p>
     </div>
   </div>
 </div>
+
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const searchInput = document.getElementById(
-      "search-input"
-    ) as HTMLInputElement;
-    const blogCards = document.querySelectorAll("article.group");
+  function initSearch() {
+    const searchInput = document.getElementById("search-input") as HTMLInputElement | null;
     const searchResults = document.getElementById("search-results");
     const resultsCount = document.getElementById("results-count");
     const noResults = document.getElementById("no-results");
-    const blogGrid = document.querySelector(".grid");
-    if (!searchInput || !blogCards.length) return;
-    const totalPosts = blogCards.length;
+    const blogGrid = document.querySelector<HTMLElement>(".grid");
+
+    if (!searchInput) return;
+
+    // Limpia el input al navegar de vuelta a la página
+    searchInput.value = "";
+    searchResults?.classList.add("hidden");
+
+    // Las cards se resuelven en tiempo de ejecución para capturar
+    // correctamente las del DOM actual tras cada navegación.
+    function getBlogCards() {
+      return document.querySelectorAll<HTMLElement>("article.group");
+    }
+
     function filterArticles() {
-      const searchTerm = searchInput.value.toLowerCase().trim();
+      const blogCards = getBlogCards();
+      if (!blogCards.length) return;
+
+      const searchTerm = searchInput!.value.toLowerCase().trim();
       let visibleCount = 0;
+
       blogCards.forEach((card) => {
-        const title =
-          card.querySelector("h2")?.textContent?.toLowerCase() || "";
-        const description =
-          card.querySelector("p")?.textContent?.toLowerCase() || "";
+        // El título está en h3, no en h2
+        const title = card.querySelector("h3")?.textContent?.toLowerCase() ?? "";
+        const description = card.querySelector("p")?.textContent?.toLowerCase() ?? "";
         const tags = Array.from(card.querySelectorAll("span"))
-          .map((tag) => tag.textContent?.toLowerCase() || "")
+          .map((tag) => tag.textContent?.toLowerCase() ?? "")
           .join(" ");
-        const matchesSearch =
+
+        const matches =
           searchTerm === "" ||
           title.includes(searchTerm) ||
           description.includes(searchTerm) ||
           tags.includes(searchTerm);
-        if (matchesSearch) {
-          (card as HTMLElement).classList.remove("hidden");
-          visibleCount++;
-        } else {
-          (card as HTMLElement).classList.add("hidden");
-        }
+
+        card.classList.toggle("hidden", !matches);
+        if (matches) visibleCount++;
       });
-      // Actualizar contador de resultados
+
+      const totalPosts = blogCards.length;
+
       if (searchTerm !== "") {
         searchResults?.classList.remove("hidden");
         if (resultsCount) {
-          resultsCount.textContent = `Mostrando ${visibleCount} de ${totalPosts} artículos`;
+          resultsCount.textContent = `Mostrando ${visibleCount} de ${totalPosts} artículo${totalPosts !== 1 ? "s" : ""}`;
         }
       } else {
         searchResults?.classList.add("hidden");
       }
-      // Mostrar mensaje si no hay resultados
+
       if (visibleCount === 0) {
         noResults?.classList.remove("hidden");
         blogGrid?.classList.add("hidden");
@@ -108,11 +127,14 @@
         blogGrid?.classList.remove("hidden");
       }
     }
-    // Event listener para el buscador con debounce
+
     let debounceTimer: ReturnType<typeof setTimeout>;
     searchInput.addEventListener("input", () => {
       clearTimeout(debounceTimer);
-      debounceTimer = setTimeout(filterArticles, 300);
+      debounceTimer = setTimeout(filterArticles, 250);
     });
-  });
+  }
+
+  // astro:page-load dispara en carga inicial Y tras cada navegación con ViewTransitions
+  document.addEventListener("astro:page-load", initSearch);
 </script>

@@ -2,6 +2,7 @@
 import Layout from "../layouts/layout.astro";
 import Gallery from "../components/Gallery.astro";
 import FAQSection from "../components/FAQSection.astro";
+import HomeBlogSection from "../components/HomeBlogSection.astro";
 
 // Datos para la sección "Cómo puedo ayudarte" (para el componente Gallery)
 const servicesGallery = [
@@ -79,25 +80,25 @@ const videoBannerHomePath = "/assets/video/video-banner-home.mp4";
     </div>
   </section>
 
-  <section class="py-16 md:py-24 bg-gray-50">
-    <h2 class="text-4xl font-extrabold text-gray-800 text-center mb-12">
-      Conoces nuestros <strong class="text-purple-700"
+  <section class="py-16 md:py-24 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <h2 class="text-4xl font-extrabold text-gray-800 dark:text-gray-100 text-center mb-12">
+      Conoces nuestros <strong class="text-purple-700 dark:text-purple-400"
         >servicios de Desarrollo de Software</strong
       >
     </h2>
-    <p class="text-center">
-      Si necesitas algún tipo de <strong class="text-purple-700"
+    <p class="text-center text-gray-700 dark:text-gray-300">
+      Si necesitas algún tipo de <strong class="text-purple-700 dark:text-purple-400"
         >software a medida</strong
       >, ¡también lo realizamos!
     </p>
     <Gallery images={servicesGallery} />
   </section>
 
-  <section class="pb-16 md:py-24 bg-white text-center">
-    <h2 class="text-4xl font-extrabold text-gray-800 mb-8">
-      ¿Listo para construir algo <span class="text-purple-700">increíble?</span>
+  <section class="pb-16 md:py-24 bg-white dark:bg-gray-950 text-center transition-colors duration-300">
+    <h2 class="text-4xl font-extrabold text-gray-800 dark:text-gray-100 mb-8">
+      ¿Listo para construir algo <span class="text-purple-700 dark:text-purple-400">increíble?</span>
     </h2>
-    <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-10">
+    <p class="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-10">
       Ponte en contacto con una de las mejores <strong
         >empresas de desarrollo de software</strong
       > y hagamos de tu idea una realidad.
@@ -111,4 +112,5 @@ const videoBannerHomePath = "/assets/video/video-banner-home.mp4";
   </section>
 
   <FAQSection />
+  <HomeBlogSection />
 </Layout>

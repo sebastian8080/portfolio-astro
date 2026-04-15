@@ -12,7 +12,10 @@ const { nombre, descripcion, imagen, icono, precio, url } = Astro.props;
 ---
 
 <div
-  class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl max-w-sm w-full"
+  class="bg-white dark:bg-gray-800 rounded-xl shadow-lg dark:shadow-gray-900/50
+         overflow-hidden flex flex-col
+         transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl dark:hover:shadow-gray-900/70
+         max-w-sm w-full border border-transparent dark:border-gray-700"
 >
   <div class="relative w-full h-52 overflow-hidden">
     <img
@@ -31,20 +34,23 @@ const { nombre, descripcion, imagen, icono, precio, url } = Astro.props;
     }
   </div>
   <div class="p-5 flex flex-col flex-grow">
-    <h2 class="text-2xl text-gray-800 font-bold mb-2 text-center">{nombre}</h2>
-    <p class="text-base text-gray-600 leading-relaxed mb-4 flex-grow">
+    <h2 class="text-2xl text-gray-800 dark:text-gray-100 font-bold mb-2 text-center">
+      {nombre}
+    </h2>
+    <p class="text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-4 flex-grow">
       {descripcion}
     </p>
     {
       precio && (
-        <p class="text-lg font-semibold text-purple-700 text-center mb-5">
+        <p class="text-lg font-semibold text-purple-700 dark:text-purple-400 text-center mb-5">
           {precio}
         </p>
       )
     }
     <a
       href={url}
-      class="block w-fit mx-auto bg-purple-700 text-white py-3 px-6 rounded-lg font-semibold text-center transition-colors duration-300 hover:bg-purple-800"
+      class="block w-fit mx-auto bg-purple-700 text-white py-3 px-6 rounded-lg font-semibold
+             text-center transition-colors duration-200 hover:bg-purple-800"
     >
       Ver Detalles
     </a>

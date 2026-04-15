@@ -9,52 +9,65 @@ import ContactForm from "../components/ContactForm.astro";
 >
   <main class="container mx-auto px-6 py-16 md:py-24 text-center">
     <h1
-      class="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-6"
+      class="text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-gray-100 leading-tight mb-6"
     >
       ¿Hablamos de tu Proyecto?
     </h1>
-    <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-12">
+    <p class="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-12">
       Estoy emocionado por escuchar tus ideas y discutir cómo podemos
       convertirlas en una realidad digital. No dudes en contactarme para
       cualquier consulta, colaboración o simplemente para saludar.
     </p>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-20">
+      <!-- Card de información de contacto -->
       <div
-        class="bg-white p-8 rounded-xl shadow-xl flex flex-col items-center justify-center h-full text-center"
+        class="bg-white dark:bg-gray-800
+               border border-gray-100 dark:border-gray-700
+               p-8 rounded-xl shadow-xl dark:shadow-gray-900/50
+               flex flex-col items-center justify-center h-full text-center"
       >
-        <h2 class="text-3xl font-bold text-gray-800 mb-6">Encuéntrame Aquí</h2>
-        <div class="space-y-4 text-gray-700 text-lg">
+        <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-6">
+          Encuéntrame Aquí
+        </h2>
+        <div class="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
           <p class="flex items-center justify-center">
             <h3>
-              <i class="fas fa-envelope text-purple-600 mr-3 text-2xl"></i>
-              <a href="mailto:contacto@sebasarmijos.dev">
+              <i class="fas fa-envelope text-purple-600 dark:text-purple-400 mr-3 text-2xl"></i>
+              <a
+                href="mailto:contacto@sebasarmijos.dev"
+                class="hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+              >
                 <span>Enviar correo</span>
               </a>
             </h3>
           </p>
           <p class="flex items-center justify-center">
             <h3>
-              <i class="fas fa-phone-alt text-purple-600 mr-3 text-2xl"></i>
-              <a href="tel:+593964085651">
+              <i class="fas fa-phone-alt text-purple-600 dark:text-purple-400 mr-3 text-2xl"></i>
+              <a
+                href="tel:+593964085651"
+                class="hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+              >
                 <span>096-408-5651</span>
               </a>
             </h3>
           </p>
           <p class="flex items-center justify-center">
             <h3>
-              <i class="fas fa-map-marker-alt text-purple-600 mr-3 text-2xl"
-              ></i>
+              <i class="fas fa-map-marker-alt text-purple-600 dark:text-purple-400 mr-3 text-2xl"></i>
               <span>Cuenca, Azuay, Ecuador</span>
             </h3>
           </p>
         </div>
+
         <div class="flex justify-center space-x-6 mt-8">
           <a
             href="https://www.linkedin.com/in/sebastian-armijos-467b171b2/"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-gray-500 hover:text-purple-700 transform hover:scale-110 transition duration-300"
+            class="text-gray-500 dark:text-gray-400 hover:text-purple-700 dark:hover:text-purple-400
+                   transform hover:scale-110 transition duration-300"
           >
             <i class="fab fa-linkedin text-4xl"></i>
           </a>
@@ -62,19 +75,22 @@ import ContactForm from "../components/ContactForm.astro";
             href="https://github.com/sebastian8080"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-gray-500 hover:text-purple-700 transform hover:scale-110 transition duration-300"
+            class="text-gray-500 dark:text-gray-400 hover:text-purple-700 dark:hover:text-purple-400
+                   transform hover:scale-110 transition duration-300"
           >
             <i class="fab fa-github text-4xl"></i>
           </a>
           <a
             href="mailto:sebas25211@hotmail.com"
-            class="text-gray-500 hover:text-purple-700 transform hover:scale-110 transition duration-300"
+            class="text-gray-500 dark:text-gray-400 hover:text-purple-700 dark:hover:text-purple-400
+                   transform hover:scale-110 transition duration-300"
           >
             <i class="fas fa-at text-4xl"></i>
           </a>
         </div>
       </div>
 
+      <!-- Formulario -->
       <div>
         <ContactForm />
       </div>

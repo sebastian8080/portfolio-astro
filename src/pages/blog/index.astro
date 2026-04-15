@@ -1,15 +1,13 @@
 ---
 import { getCollection } from "astro:content";
-import Layout from "../../layouts/layout.astro"; // Ajusta la ruta según tu estructura
+import Layout from "../../layouts/layout.astro";
 import BlogCard from "../../components/BlogCard.astro";
 import BlogFilters from "../../components/BlogFilters.astro";
 
-// Obtener todos los posts del blog que no sean drafts
 const allPosts = await getCollection("blog", ({ data }) => {
   return data.draft !== true;
 });
 
-// Ordenar posts por fecha (más recientes primero)
 const sortedPosts = allPosts.sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
@@ -19,10 +17,8 @@ const sortedPosts = allPosts.sort(
   title="Artículos sobre Desarrollo Web | Sebastián Armijos"
   description="Artículos sobre desarrollo web, programación, posicionamiento SEO y tecnología. Comparto mis conocimientos y experiencias como desarrollador."
 >
-  <!-- Hero Section -->
-  <section
-    class="bg-gradient-to-br from-purple-600 to-indigo-700 text-white py-20 md:py-28"
-  >
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-purple-600 to-indigo-700 text-white py-20 md:py-28">
     <div class="container mx-auto px-4 md:px-6">
       <div class="max-w-3xl mx-auto text-center">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
@@ -36,13 +32,11 @@ const sortedPosts = allPosts.sort(
     </div>
   </section>
 
-  <!-- Blog Content -->
-  <section class="py-16 md:py-20 bg-gray-50">
+  <!-- Contenido del blog -->
+  <section class="py-16 md:py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
     <div class="container mx-auto px-4 md:px-6">
-      <!-- Filtros y Búsqueda -->
       <BlogFilters />
 
-      <!-- Grid de Posts -->
       {
         sortedPosts.length > 0 ? (
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -60,7 +54,7 @@ const sortedPosts = allPosts.sort(
         ) : (
           <div class="text-center py-16">
             <svg
-              class="mx-auto h-24 w-24 text-gray-400 mb-4"
+              class="mx-auto h-24 w-24 text-gray-400 dark:text-gray-600 mb-4"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -72,10 +66,10 @@ const sortedPosts = allPosts.sort(
                 d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
               />
             </svg>
-            <h3 class="text-2xl font-semibold text-gray-700 mb-2">
+            <h3 class="text-2xl font-semibold text-gray-700 dark:text-gray-300 mb-2">
               No hay artículos todavía
             </h3>
-            <p class="text-gray-500">
+            <p class="text-gray-500 dark:text-gray-400">
               Pronto empezaré a compartir contenido interesante.
             </p>
           </div>
@@ -84,19 +78,20 @@ const sortedPosts = allPosts.sort(
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="bg-white py-16 md:py-20">
+  <!-- CTA -->
+  <section class="bg-white dark:bg-gray-950 py-16 md:py-20 transition-colors duration-300">
     <div class="container mx-auto px-4 md:px-6">
       <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">
           ¿Tienes un proyecto en mente?
         </h2>
-        <p class="text-lg text-gray-600 mb-8">
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
           Hablemos sobre cómo puedo ayudarte a hacer realidad tu idea.
         </p>
         <a
           href="/contacto"
-          class="inline-block bg-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-purple-700 transition-colors shadow-lg hover:shadow-xl"
+          class="inline-block bg-purple-600 text-white px-8 py-4 rounded-lg font-semibold
+                 hover:bg-purple-700 transition-colors shadow-lg hover:shadow-xl"
         >
           Contáctame
         </a>
