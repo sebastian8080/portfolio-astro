@@ -3,7 +3,6 @@ import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import FloatingWhatsapp from "../components/FloatingWhatsapp.astro";
 import { ViewTransitions } from "astro:transitions";
-
 interface Props {
   title: string;
   description: string;
@@ -125,6 +124,12 @@ const ogImage = new URL(image, Astro.site);
       gtag("js", new Date());
       gtag("config", "G-XPKFS7PGHY");
     </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="icon" href="/icon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/tailwind.css" />
     <link
