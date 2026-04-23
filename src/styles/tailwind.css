@@ -6,6 +6,7 @@
   /* Comunica al navegador qué esquema usar (scrollbar nativo, inputs, etc.) */
   :root {
     color-scheme: light;
+    font-family: "Montserrat", sans-serif;
   }
   html.dark {
     color-scheme: dark;
