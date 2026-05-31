@@ -1,0 +1,80 @@
+---
+const reasons = [
+  {
+    icon: "fa-solid fa-user-tie",
+    title: "Comunicación directa",
+    description:
+      "Hablas directamente conmigo, sin intermediarios. Cada duda o cambio se resuelve de forma ágil y sin burocracia.",
+  },
+  {
+    icon: "fa-solid fa-bolt",
+    title: "Sitios ultrarrápidos",
+    description:
+      "Construyo con tecnologías modernas que generan sitios con puntajes PageSpeed de 95+/100, favorecidos por Google.",
+  },
+  {
+    icon: "fa-solid fa-tag",
+    title: "Precios transparentes",
+    description:
+      "Recibes una propuesta detallada antes de comenzar. Sin costos ocultos ni sorpresas al momento de pagar.",
+  },
+  {
+    icon: "fa-solid fa-headset",
+    title: "Soporte post-lanzamiento",
+    description:
+      "No desaparezco al entregar. Te acompaño con soporte para ajustes y dudas después del lanzamiento.",
+  },
+  {
+    icon: "fa-solid fa-magnifying-glass-chart",
+    title: "Enfocado en resultados",
+    description:
+      "Diseño sitios que posicionan en Google y convierten visitantes en clientes, no solo sitios estéticamente bonitos.",
+  },
+  {
+    icon: "fa-solid fa-clock",
+    title: "Entregas puntuales",
+    description:
+      "Cumplo los plazos acordados y te mantengo informado del avance en cada etapa del proyecto.",
+  },
+];
+---
+
+<section
+  class="py-16 md:py-24 bg-white dark:bg-gray-950 transition-colors duration-300"
+>
+  <div class="max-w-screen-2xl mx-auto px-4 md:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-extrabold text-gray-900 dark:text-gray-100 mb-4">
+        ¿Cómo puedo ayudarte como tu{" "}
+        <span class="text-purple-700 dark:text-purple-400"
+          >desarrollador web?</span
+        >
+      </h2>
+      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+        Conoce todo lo que obtendrás al trabajar juntos:
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        reasons.map((reason) => (
+          <div class="flex gap-4 p-6 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 hover:border-purple-200 dark:hover:border-purple-700 transition-colors duration-200">
+            <div class="shrink-0 w-12 h-12 flex items-center justify-center rounded-lg bg-purple-100 dark:bg-purple-900/40">
+              <i
+                class={`${reason.icon} text-xl text-purple-700 dark:text-purple-400`}
+              />
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-1">
+                {reason.title}
+              </h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                {reason.description}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

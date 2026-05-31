@@ -1,0 +1,63 @@
+---
+const steps = [
+  {
+    number: "01",
+    icon: "fa-solid fa-comments",
+    title: "Consulta gratuita",
+    description: "Conversamos sobre tu idea, objetivos y presupuesto. Sin costos ni compromisos de ningún tipo.",
+  },
+  {
+    number: "02",
+    icon: "fa-solid fa-file-lines",
+    title: "Propuesta clara",
+    description: "Recibes una propuesta detallada con costos, plazos de entrega y tecnologías a usar, antes de empezar.",
+  },
+  {
+    number: "03",
+    icon: "fa-solid fa-code",
+    title: "Desarrollo",
+    description: "Construyo tu solución con actualizaciones constantes. Tú ves el progreso real en cada etapa.",
+  },
+  {
+    number: "04",
+    icon: "fa-solid fa-rocket",
+    title: "Entrega y soporte",
+    description: "Lanzamos tu proyecto juntos y te acompaño con soporte post-lanzamiento incluido sin costo extra.",
+  },
+];
+---
+
+<section class="py-16 md:py-24 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+  <div class="max-w-screen-2xl mx-auto px-4 md:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-extrabold text-gray-900 dark:text-gray-100 mb-4">
+        ¿Cómo{" "}
+        <span class="text-purple-700 dark:text-purple-400">trabajamos juntos?</span>
+      </h2>
+      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+        Un proceso simple, transparente y sin sorpresas desde el primer mensaje.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {
+        steps.map((step) => (
+          <div class="relative flex flex-col items-center text-center p-6 rounded-xl bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700">
+            <span class="text-6xl font-black text-purple-100 dark:text-purple-900/60 absolute top-3 right-4 leading-none select-none">
+              {step.number}
+            </span>
+            <div class="relative z-10 w-16 h-16 flex items-center justify-center rounded-full bg-purple-100 dark:bg-purple-900/40 mb-4">
+              <i class={`${step.icon} text-2xl text-purple-700 dark:text-purple-400`} />
+            </div>
+            <h3 class="relative z-10 text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+              {step.title}
+            </h3>
+            <p class="relative z-10 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+              {step.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -3,6 +3,10 @@ import Layout from "../layouts/layout.astro";
 import Gallery from "../components/Gallery.astro";
 import FAQSection from "../components/FAQSection.astro";
 import HomeBlogSection from "../components/HomeBlogSection.astro";
+import WhyChooseMe from "../components/WhyChooseMe.astro";
+import WorkProcess from "../components/WorkProcess.astro";
+import TechStack from "../components/TechStack.astro";
+import FreeAuditCTA from "../components/FreeAuditCTA.astro";
 
 // Datos para la sección "Cómo puedo ayudarte" (para el componente Gallery)
 const servicesGallery = [
@@ -27,6 +31,50 @@ const servicesGallery = [
 ];
 
 const videoBannerHomePath = "/assets/video/video-banner-home.mp4";
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Sebastián Armijos — Desarrollador Web en Cuenca",
+  url: "https://sebasarmijos.dev",
+  telephone: "+593964085651",
+  description:
+    "Desarrollador Web & Experto SEO en Cuenca, Ecuador. Especializado en Astro, Laravel, SEO técnico y soluciones digitales a medida para empresas y emprendedores de todo el país.",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Cuenca",
+    addressRegion: "Azuay",
+    addressCountry: "EC",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: -2.9001,
+    longitude: -79.0059,
+  },
+  areaServed: {
+    "@type": "Country",
+    name: "Ecuador",
+  },
+  priceRange: "$$",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Servicios de Desarrollo Web",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Desarrollo Web Profesional" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Optimización SEO" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Auditoría Técnica Web" },
+      },
+    ],
+  },
+};
 ---
 
 <Layout
@@ -52,11 +100,12 @@ const videoBannerHomePath = "/assets/video/video-banner-home.mp4";
     <div
       class="relative z-10 text-center text-white p-6 bg-black bg-opacity-40 rounded-lg max-w-2xl mx-auto shadow-lg"
     >
-      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
+      <h1 class="text-3xl md:text-4xl font-extrabold leading-tight mb-4">
         Desarrollador de Software <br />
         <span class="text-purple-400">en Cuenca</span>
       </h1>
-      <p class="text-lg md:text-2xl mt-4 font-light leading-relaxed">
+      <p class="text-gray-300 text-sm italic">Software Development</p>
+      <p class="text-lg md:text-xl mt-4 font-light leading-relaxed">
         <strong>Desarrollador web en Cuenca</strong> enfocado en crear <strong
           >experiencias digitales rápidas y modernas</strong
         > que impulsan tu negocio.
@@ -80,37 +129,58 @@ const videoBannerHomePath = "/assets/video/video-banner-home.mp4";
     </div>
   </section>
 
-  <section class="py-16 md:py-24 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-    <h2 class="text-4xl font-extrabold text-gray-800 dark:text-gray-100 text-center mb-12">
+  <section
+    class="py-16 md:py-24 bg-gray-50 dark:bg-gray-900 transition-colors duration-300"
+  >
+    <h2
+      class="text-4xl font-extrabold text-gray-800 dark:text-gray-100 text-center mb-12"
+    >
       Conoces nuestros <strong class="text-purple-700 dark:text-purple-400"
         >servicios de Desarrollo de Software</strong
       >
     </h2>
     <p class="text-center text-gray-700 dark:text-gray-300">
-      Si necesitas algún tipo de <strong class="text-purple-700 dark:text-purple-400"
-        >software a medida</strong
+      Si necesitas algún tipo de <strong
+        class="text-purple-700 dark:text-purple-400">software a medida</strong
       >, ¡también lo realizamos!
     </p>
     <Gallery images={servicesGallery} />
   </section>
 
-  <section class="pb-16 md:py-24 bg-white dark:bg-gray-950 text-center transition-colors duration-300">
-    <h2 class="text-4xl font-extrabold text-gray-800 dark:text-gray-100 mb-8">
-      ¿Listo para construir algo <span class="text-purple-700 dark:text-purple-400">increíble?</span>
-    </h2>
-    <p class="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-10">
-      Ponte en contacto con una de las mejores <strong
-        >empresas de desarrollo de software</strong
-      > y hagamos de tu idea una realidad.
-    </p>
-    <a
-      href="/contacto"
-      class="inline-block bg-purple-700 text-white font-semibold px-10 py-4 rounded-lg shadow-lg hover:bg-purple-800 transition duration-300 transform hover:scale-105"
-    >
-      Contactarme
-    </a>
+  <WhyChooseMe />
+  <WorkProcess />
+  <TechStack />
+  <FreeAuditCTA />
+
+  <section
+    class="py-16 md:py-20 bg-gray-900 dark:bg-gray-950 transition-colors duration-300"
+  >
+    <div class="max-w-screen-2xl mx-auto px-4 md:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">
+        Desarrollo web para toda <span class="text-purple-400">Ecuador</span>,
+        trabajando 100% remoto
+      </h2>
+      <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-6">
+        Basado en <strong class="text-white">Cuenca, Azuay</strong>, ofrezco
+        servicios de desarrollo web y optimización SEO para empresas y
+        emprendedores en todo el país:
+        <strong class="text-white"
+          >Quito, Guayaquil, Cuenca, Ambato, Loja, Machala</strong
+        > y más.
+      </p>
+      <p class="text-gray-400 max-w-2xl mx-auto">
+        La distancia no es un obstáculo. Me coordino contigo de forma ágil y
+        entrego resultados sin importar desde qué ciudad del Ecuador nos
+        conectemos.
+      </p>
+    </div>
   </section>
 
   <FAQSection />
   <HomeBlogSection />
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(localBusinessSchema)}
+  />
 </Layout>

@@ -1,5 +1,4 @@
 ---
-// Contenido de las Preguntas Frecuentes (FAQ) optimizado para SEO
 const faqs = [
   {
     question:
@@ -26,7 +25,22 @@ const faqs = [
       "Sí, ofrezco una consulta inicial gratuita para discutir tu idea o proyecto. Analizaremos tus objetivos, el alcance del trabajo, las tecnologías más adecuadas y te proporcionaré una cotización transparente. Puedes contactarme directamente para agendar una reunión.",
   },
 ];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((faq) => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer,
+    },
+  })),
+};
 ---
+
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
 <section class="py-16 mx-auto max-w-screen-2xl px-4 md:px-8 transition-colors duration-300">
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">

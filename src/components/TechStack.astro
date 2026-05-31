@@ -1,0 +1,39 @@
+---
+const techs = [
+  { name: "Astro",        icon: "fa-solid fa-meteor",          color: "text-orange-500" },
+  { name: "Laravel",      icon: "fa-brands fa-laravel",         color: "text-red-500"    },
+  { name: "React",        icon: "fa-brands fa-react",           color: "text-cyan-400"   },
+  { name: "JavaScript",   icon: "fa-brands fa-js",              color: "text-yellow-400" },
+  { name: "PHP",          icon: "fa-brands fa-php",             color: "text-indigo-500" },
+  { name: "MySQL",        icon: "fa-solid fa-database",         color: "text-blue-500"   },
+  { name: "Tailwind CSS", icon: "fa-solid fa-wind",             color: "text-teal-400"   },
+  { name: "WordPress",    icon: "fa-brands fa-wordpress",       color: "text-blue-600"   },
+  { name: "Node.js",      icon: "fa-brands fa-node-js",         color: "text-green-500"  },
+  { name: "Git",          icon: "fa-brands fa-git-alt",         color: "text-orange-600" },
+];
+---
+
+<section class="py-16 md:py-20 bg-white dark:bg-gray-950 transition-colors duration-300">
+  <div class="max-w-screen-2xl mx-auto px-4 md:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-extrabold text-gray-900 dark:text-gray-100 mb-4">
+        Tecnologías que{" "}
+        <span class="text-purple-700 dark:text-purple-400">domino</span>
+      </h2>
+      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+        Uso las herramientas más modernas y probadas para construir soluciones robustas, rápidas y escalables.
+      </p>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-4">
+      {
+        techs.map((tech) => (
+          <div class="flex items-center gap-3 px-5 py-3 rounded-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md hover:border-purple-300 dark:hover:border-purple-600 transition-all duration-200 cursor-default">
+            <i class={`${tech.icon} text-xl ${tech.color}`} />
+            <span class="font-semibold text-gray-800 dark:text-gray-200">{tech.name}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

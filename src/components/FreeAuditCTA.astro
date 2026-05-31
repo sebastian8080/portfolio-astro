@@ -1,0 +1,113 @@
+---
+const checkItems = [
+  "Velocidad y rendimiento (PageSpeed Insights)",
+  "Errores de SEO que Google puede estar penalizando",
+  "Experiencia de usuario y usabilidad móvil",
+];
+---
+
+<section class="py-16 md:py-24 bg-purple-700 dark:bg-purple-950 transition-colors duration-300">
+  <div class="max-w-screen-2xl mx-auto px-4 md:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+      <div class="text-white">
+        <span class="inline-block bg-purple-600 dark:bg-purple-800 text-purple-100 text-sm font-semibold px-3 py-1 rounded-full mb-6">
+          100% gratuito · Sin compromisos
+        </span>
+        <h2 class="text-4xl font-extrabold mb-4 leading-tight">
+          ¿Tu sitio web podría estar perdiendo clientes?
+        </h2>
+        <p class="text-lg text-purple-100 mb-8 leading-relaxed">
+          Te envío un análisis gratuito de tu sitio web en menos de 48 horas, con los puntos exactos que están
+          frenando que Google te muestre más y que tus visitantes se conviertan en clientes.
+        </p>
+        <ul class="space-y-3">
+          {
+            checkItems.map((item) => (
+              <li class="flex items-center gap-3 text-purple-100">
+                <i class="fa-solid fa-circle-check text-purple-300 shrink-0 text-lg" />
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <form
+        action="https://formspree.io/f/moveodgj"
+        method="POST"
+        class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-2xl space-y-5"
+      >
+        <input type="hidden" name="_subject" value="Solicitud de auditoría web gratuita" />
+        <input type="hidden" name="tipo" value="auditoria_gratuita" />
+
+        <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100">
+          Solicitar auditoría gratuita
+        </h3>
+
+        <div>
+          <label
+            for="audit_name"
+            class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1"
+          >
+            Tu nombre
+          </label>
+          <input
+            type="text"
+            id="audit_name"
+            name="name"
+            placeholder="Ej: María García"
+            required
+            class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 placeholder-gray-400 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition duration-200"
+          />
+        </div>
+
+        <div>
+          <label
+            for="audit_email"
+            class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1"
+          >
+            Tu correo electrónico
+          </label>
+          <input
+            type="email"
+            id="audit_email"
+            name="email"
+            placeholder="tu@correo.com"
+            required
+            class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 placeholder-gray-400 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition duration-200"
+          />
+        </div>
+
+        <div>
+          <label
+            for="audit_url"
+            class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1"
+          >
+            URL de tu sitio web
+          </label>
+          <input
+            type="url"
+            id="audit_url"
+            name="website_url"
+            placeholder="https://tusitio.com"
+            required
+            class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 placeholder-gray-400 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition duration-200"
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="w-full bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-[1.01] shadow-md"
+        >
+          Quiero mi auditoría gratuita
+        </button>
+
+        <p class="text-xs text-gray-500 dark:text-gray-400 text-center">
+          Tu información es privada y nunca será compartida con terceros.
+        </p>
+      </form>
+
+    </div>
+  </div>
+</section>
