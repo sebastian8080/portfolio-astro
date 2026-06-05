@@ -1488,10 +1488,6 @@ html.no-transitions *,
   grid-column: span 1 / span 1;
 }
 
-.m-0 {
-  margin: 0px;
-}
-
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -2504,10 +2500,6 @@ html.no-transitions *,
 
 .p-8 {
   padding: 2rem;
-}
-
-.p-0 {
-  padding: 0px;
 }
 
 .px-10 {
