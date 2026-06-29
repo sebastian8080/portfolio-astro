@@ -5,8 +5,10 @@ interface Props {
 }
 
 // Desestructuración de Astro.props con valor por defecto para defaultMessage
-const { phoneNumber, defaultMessage = "¡Hola! Quisiera hacer una consulta." } =
-  Astro.props;
+const {
+  phoneNumber,
+  defaultMessage = "¡Hola Sebas! Quisiera hacer una consulta.",
+} = Astro.props;
 
 // Codificación del mensaje para la URL
 const encodedMessage = encodeURIComponent(defaultMessage);
