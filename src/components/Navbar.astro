@@ -7,8 +7,9 @@ const navLinks = [
   { name: "Contacto", href: "/contacto" },
 ];
 
-const logoLight = "/assets/logo-sebastian-armijos-purpura-transparente-nuevo.png";
-const logoDark = "/assets/logo-sebastian-armijos-dev-transparente.png";
+const logoLight =
+  "/assets/logo-sebastian-armijos-purpura-transparente-nuevo.png";
+const logoDark = "/assets/logo-sebastian-armijos-blanco-nuevo-transparente.png";
 ---
 
 <header
@@ -185,8 +186,16 @@ const logoDark = "/assets/logo-sebastian-armijos-dev-transparente.png";
       class="flex items-center justify-between px-5 py-4 border-b border-gray-100 dark:border-gray-800"
     >
       <a href="/" class="leading-none">
-        <img class="block dark:hidden w-[120px]" src={logoLight} alt="Logo de Sebastian Armijos" />
-        <img class="hidden dark:block w-[120px]" src={logoDark} alt="Logo de Sebastian Armijos" />
+        <img
+          class="block dark:hidden w-[120px]"
+          src={logoLight}
+          alt="Logo de Sebastian Armijos"
+        />
+        <img
+          class="hidden dark:block w-[120px]"
+          src={logoDark}
+          alt="Logo de Sebastian Armijos"
+        />
       </a>
       <button
         id="navbar-close"
