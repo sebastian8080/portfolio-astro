@@ -1820,6 +1820,22 @@ html.no-transitions *,
   width: 100%;
 }
 
+.w-\[160px\] {
+  width: 160px;
+}
+
+.w-\[180px\] {
+  width: 180px;
+}
+
+.w-\[200px\] {
+  width: 200px;
+}
+
+.w-\[120px\] {
+  width: 120px;
+}
+
 .min-w-0 {
   min-width: 0px;
 }
@@ -2636,6 +2652,22 @@ html.no-transitions *,
 
 .pt-8 {
   padding-top: 2rem;
+}
+
+.pt-5 {
+  padding-top: 1.25rem;
+}
+
+.pt-10 {
+  padding-top: 2.5rem;
+}
+
+.pt-4 {
+  padding-top: 1rem;
+}
+
+.pt-3 {
+  padding-top: 0.75rem;
 }
 
 .text-center {
@@ -4376,6 +4408,10 @@ html.no-transitions *,
 
   .lg\:w-96 {
     width: 24rem;
+  }
+
+  .lg\:w-\[270px\] {
+    width: 270px;
   }
 
   .lg\:grid-cols-12 {

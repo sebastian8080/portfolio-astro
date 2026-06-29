@@ -7,7 +7,8 @@ const navLinks = [
   { name: "Contacto", href: "/contacto" },
 ];
 
-const logoPath = "/assets/logo-sa-tech-transparente.webp";
+const logoLight = "/assets/logo-sebastian-armijos-purpura-transparente-nuevo.png";
+const logoDark = "/assets/logo-sebastian-armijos-dev-transparente.png";
 ---
 
 <header
@@ -15,7 +16,16 @@ const logoPath = "/assets/logo-sa-tech-transparente.webp";
 >
   <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
     <a class="leading-none shrink-0" href="/">
-      <img width="180" src={logoPath} alt="Logo de SA TECH" />
+      <img
+        class="block dark:hidden pt-3 w-[200px] lg:w-[270px]"
+        src={logoLight}
+        alt="Logo de Sebastian Armijos"
+      />
+      <img
+        class="hidden dark:block pt-3 w-[200px] lg:w-[270px]"
+        src={logoDark}
+        alt="Logo de Sebastian Armijos"
+      />
     </a>
 
     <!-- Desktop nav -->
@@ -144,8 +154,17 @@ const logoPath = "/assets/logo-sa-tech-transparente.webp";
                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
         aria-label="Abrir menú"
       >
-        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        <svg
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
     </div>
@@ -162,9 +181,12 @@ const logoPath = "/assets/logo-sa-tech-transparente.webp";
 >
   <div class="flex flex-col h-full">
     <!-- Header del menú -->
-    <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100 dark:border-gray-800">
+    <div
+      class="flex items-center justify-between px-5 py-4 border-b border-gray-100 dark:border-gray-800"
+    >
       <a href="/" class="leading-none">
-        <img width="120" src={logoPath} alt="Logo de SA TECH" />
+        <img class="block dark:hidden w-[120px]" src={logoLight} alt="Logo de Sebastian Armijos" />
+        <img class="hidden dark:block w-[120px]" src={logoDark} alt="Logo de Sebastian Armijos" />
       </a>
       <button
         id="navbar-close"
@@ -174,8 +196,17 @@ const logoPath = "/assets/logo-sa-tech-transparente.webp";
                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
         aria-label="Cerrar menú"
       >
-        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        <svg
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18L18 6M6 6l12 12"></path>
         </svg>
       </button>
     </div>
@@ -203,7 +234,9 @@ const logoPath = "/assets/logo-sa-tech-transparente.webp";
     </nav>
 
     <!-- Footer del menú -->
-    <div class="px-5 py-5 border-t border-gray-100 dark:border-gray-800 space-y-3">
+    <div
+      class="px-5 py-5 border-t border-gray-100 dark:border-gray-800 space-y-3"
+    >
       <a
         href="/contacto"
         class="block w-full text-center px-4 py-3 bg-purple-700 text-white rounded-lg
@@ -222,7 +255,8 @@ const logoPath = "/assets/logo-sa-tech-transparente.webp";
 <div
   id="navbar-backdrop"
   class="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 hidden lg:hidden transition-opacity duration-300"
-></div>
+>
+</div>
 
 <script is:inline>
   // ── Theme toggle ─────────────────────────────────────────────────────────
@@ -285,18 +319,27 @@ const logoPath = "/assets/logo-sa-tech-transparente.webp";
       el.parentNode.replaceChild(c, el);
     });
 
-    document.getElementById("navbar-burger").addEventListener("click", openMenu);
-    document.getElementById("navbar-close").addEventListener("click", closeMenu);
-    document.getElementById("navbar-backdrop").addEventListener("click", closeMenu);
+    document
+      .getElementById("navbar-burger")
+      .addEventListener("click", openMenu);
+    document
+      .getElementById("navbar-close")
+      .addEventListener("click", closeMenu);
+    document
+      .getElementById("navbar-backdrop")
+      .addEventListener("click", closeMenu);
 
     window.addEventListener("resize", function () {
       if (window.innerWidth >= 1024) closeMenu();
     });
 
     // Cierra el menú al navegar
-    document.getElementById("navbar-menu").querySelectorAll("a").forEach(function (a) {
-      a.addEventListener("click", closeMenu);
-    });
+    document
+      .getElementById("navbar-menu")
+      .querySelectorAll("a")
+      .forEach(function (a) {
+        a.addEventListener("click", closeMenu);
+      });
   }
 
   function init() {
