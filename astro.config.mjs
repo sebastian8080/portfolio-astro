@@ -4,7 +4,7 @@ import vercel from "@astrojs/vercel";
 
 export default defineConfig({
   output: "static",
-  adapter: vercel({ entrypointResolution: "auto" }),
+  adapter: vercel(),
   site: "https://sebasarmijos.dev",
   integrations: [
     sitemap(),
