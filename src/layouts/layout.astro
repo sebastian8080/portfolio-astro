@@ -2,7 +2,7 @@
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import FloatingWhatsapp from "../components/FloatingWhatsapp.astro";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 interface Props {
   title: string;
   description: string;
@@ -139,7 +139,7 @@ const ogImage = new URL(image, Astro.site);
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <ViewTransitions />
+    <ClientRouter />
     <script src="https://llmometrics.b-cdn.net/metric.js" data-token="718d80a0-6d8b-4882-aa5c-17c5bd961296"></script>
   </head>
   <body class="bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300">

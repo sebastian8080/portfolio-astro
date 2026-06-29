@@ -18,7 +18,7 @@ const allPosts = await getCollection("blog", ({ data }) => {
 
 // Filtrar el post actual si existe y ordenar por fecha
 const latestPosts = allPosts
-  .filter((post) => post.slug !== currentSlug)
+  .filter((post) => post.id !== currentSlug)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, limit);
 
@@ -40,7 +40,7 @@ const formatDate = (date: Date) => {
       latestPosts.map((post) => (
         <article class="group">
           <a
-            href={`/blog/${post.slug}`}
+            href={`/blog/${post.id}`}
             class="block hover:bg-gray-50 rounded-lg p-3 transition-colors duration-300"
           >
             {/* Imagen miniatura si existe */}

@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import type { GetStaticPaths } from "astro";
 import Layout from "../../layouts/layout.astro";
 import RelatedPosts from "../../components/RelatedPosts.astro";
@@ -13,13 +13,13 @@ export const getStaticPaths = (async () => {
   });
 
   return blogEntries.map((entry) => ({
-    params: { slug: entry.slug },
+    params: { slug: entry.id },
     props: { entry },
   }));
 }) satisfies GetStaticPaths;
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 
 const formattedDate = new Intl.DateTimeFormat("es-ES", {
   year: "numeric",
@@ -216,7 +216,7 @@ const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURICom
         <!-- Columna Derecha: Sidebar con componentes -->
         <div class="lg:col-span-3 space-y-8">
           <!-- Últimos artículos
-          <LatestPosts currentSlug={entry.slug} /> -->
+          <LatestPosts currentSlug={entry.id} /> -->
 
           <!-- Servicios destacados -->
           <FeaturedServices />
@@ -232,6 +232,6 @@ const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURICom
 
   <!-- Posts Relacionados (ancho completo) -->
   <div class="container mx-auto px-4 md:px-6 mt-16">
-    <RelatedPosts currentSlug={entry.slug} tags={entry.data.tags} />
+    <RelatedPosts currentSlug={entry.id} tags={entry.data.tags} />
   </div>
 </Layout>

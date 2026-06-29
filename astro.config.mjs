@@ -1,14 +1,12 @@
 import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
+import vercel from "@astrojs/vercel";
 
 export default defineConfig({
+  output: "static",
+  adapter: vercel({ entrypointResolution: "auto" }),
   site: "https://sebasarmijos.dev",
   integrations: [
-    tailwind({
-      // Desactiva la integración automática
-      applyBaseStyles: false,
-    }),
     sitemap(),
   ],
   markdown: {

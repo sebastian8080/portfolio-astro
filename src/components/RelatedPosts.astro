@@ -11,8 +11,8 @@ interface Props {
 const { currentSlug, tags, limit = 3 } = Astro.props;
 
 // Obtener todos los posts excepto el actual
-const allPosts = await getCollection("blog", ({ data, slug }) => {
-  return data.draft !== true && slug !== currentSlug;
+const allPosts = await getCollection("blog", ({ data, id }) => {
+  return data.draft !== true && id !== currentSlug;
 });
 
 // Calcular relevancia basada en tags compartidos
@@ -49,7 +49,7 @@ const relatedPosts = postsWithScore
             title={post.data.title}
             description={post.data.description}
             pubDate={post.data.pubDate}
-            slug={post.slug}
+            slug={post.id}
             image={post.data.image}
             tags={post.data.tags}
           />

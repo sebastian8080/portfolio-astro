@@ -1,3 +1,5 @@
+import typography from "@tailwindcss/typography";
+
 export default {
   darkMode: "class",
   content: ["./src/**/*.{astro,html,js,jsx,ts,tsx,vue,md,mdx}"],
@@ -8,5 +10,5 @@ export default {
       },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [typography],
 };
