@@ -1,5 +1,6 @@
 ---
 title: "Cómo elegir palabras clave para mi negocio"
+h1text: "Guía para Elegir las Palabras Clave Correctas para tu Negocio"
 description: "Aprende cómo elegir palabras clave para tu negocio y atraer más clientes con una estrategia SEO efectiva."
 pubDate: 2026-04-22
 author: "Sebastián Armijos"

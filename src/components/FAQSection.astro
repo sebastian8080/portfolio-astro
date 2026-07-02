@@ -1,40 +1,60 @@
 ---
-const faqs = [
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  faqs?: FaqItem[];
+  title?: string;
+  description?: string;
+  showContactLink?: boolean;
+}
+
+const defaultFaqs: FaqItem[] = [
   {
     question:
       "¿Dónde puedo encontrar un desarrollador web o desarrollador de software en Cuenca, Ecuador?",
     answer:
-      "Si estás buscando un desarrollador de software en Cuenca, has llegado al lugar correcto. Nos especializamos con la entrega de soluciones personalizadas, desde sitios web modernos con Astro hasta sistemas complejos de gestión con Laravel.",
+      "Si estás buscando un <strong>desarrollador de software en Cuenca</strong>, puedes escribir términos como <strong>'desarrollador web en [localidad]'</strong>, o simplemente buscar en Google <strong>'desarrollador web cerca de mí'</strong>. También puedes agregar términos como 'programador web', etc. Al hacer esto Google te listará una serie de resultados.",
   },
   {
     question:
       "¿Para qué sirve contratar a un desarrollador de software individual en lugar de una agencia?",
     answer:
-      "Contratar a un desarrollador web individual como yo garantiza comunicación directa, costos más eficientes y una toma de decisiones más rápida. Obtienes un servicio personalizado, con un único punto de contacto, y un compromiso directo con la calidad de tu proyecto.",
+      "Contratar a un <strong>desarrollador web</strong> individual garantiza comunicación directa, costos más eficientes y una toma de decisiones más rápida. Obtienes un servicio personalizado, con un único punto de contacto, y un compromiso directo con la calidad de tu proyecto.",
+  },
+  {
+    question: "¿Qué tipos de proyectos puede construir un programador web?",
+    answer:
+      "Puede crear aplicaciones web complejas como sistemas personalizados, <strong>páginas web sencillas</strong>, <strong>landing pages optimizadas para ventas</strong>, etc. El enfoque principal debe ser la experiencia del usuario y un producto amigable con el usuario.",
   },
   {
     question:
-      "¿Qué tipos de proyectos web o aplicaciones móviles puedes construir?",
+      "¿Ofreces cotizaciones o asesoría gratuita para una idea de proyecto?",
     answer:
-      "Puedes crear aplicaciones web, landing pages optimizadas para ventas, etc. Nuestro enfoque principal es la velocidad y la experiencia del usuario.",
-  },
-  {
-    question:
-      "¿Ofreces cotizaciones o asesoría gratuita para mi idea de proyecto?",
-    answer:
-      "Sí, ofrezco una consulta inicial gratuita para discutir tu idea o proyecto. Analizaremos tus objetivos, el alcance del trabajo, las tecnologías más adecuadas y te proporcionaré una cotización transparente. Puedes contactarme directamente para agendar una reunión.",
+      "Sí, ofrezco una <strong>consulta inicial gratuita</strong> para discutir tu idea o proyecto. Analizaremos tus objetivos, el alcance del trabajo, las tecnologías más adecuadas y te proporcionaré una cotización transparente. Puedes contactarme directamente para agendar una reunión.",
   },
 ];
+
+const {
+  faqs = defaultFaqs,
+  title = "Preguntas Frecuentes",
+  description,
+  showContactLink = true,
+} = Astro.props;
+
+const stripHtml = (value: string) => value.replace(/<[^>]+>/g, "");
 
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": faqs.map((faq) => ({
+  mainEntity: faqs.map((faq) => ({
     "@type": "Question",
-    "name": faq.question,
-    "acceptedAnswer": {
+    name: faq.question,
+    acceptedAnswer: {
       "@type": "Answer",
-      "text": faq.answer,
+      text: stripHtml(faq.answer),
     },
   })),
 };
@@ -42,24 +62,34 @@ const faqSchema = {
 
 <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
-<section class="py-16 mx-auto max-w-screen-2xl px-4 md:px-8 transition-colors duration-300">
+<section
+  class="py-16 mx-auto max-w-screen-2xl px-4 md:px-8 transition-colors duration-300"
+>
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
     <div class="lg:sticky lg:top-40 lg:self-start">
       <h2
         class="text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100 mb-4"
       >
-        Preguntas Frecuentes
+        {title}
       </h2>
-      <p class="text-lg text-gray-500 dark:text-gray-400">
-        ¿No encuentras la respuesta que buscas? Ponte en contacto con nuestro
-        equipo de
-        <a
-          href="/contacto"
-          class="text-purple-600 dark:text-purple-400 hover:text-purple-500 font-medium transition duration-150 ease-in-out underline"
-        >
-          atención al cliente
-        </a>
-      </p>
+      {
+        description ? (
+          <p class="text-lg text-gray-500 dark:text-gray-400">{description}</p>
+        ) : (
+          showContactLink && (
+            <p class="text-lg text-gray-500 dark:text-gray-400">
+              ¿No encuentras la respuesta que buscas? Ponte en contacto con
+              nuestro equipo de{" "}
+              <a
+                href="/contacto"
+                class="text-purple-600 dark:text-purple-400 hover:text-purple-500 font-medium transition duration-150 ease-in-out underline"
+              >
+                atención al cliente
+              </a>
+            </p>
+          )
+        )
+      }
     </div>
 
     <div class="space-y-12">
@@ -69,9 +99,10 @@ const faqSchema = {
             <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
               {faq.question}
             </h3>
-            <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              {faq.answer}
-            </p>
+            <p
+              class="text-base text-gray-700 dark:text-gray-300 leading-relaxed [&_strong]:font-semibold [&_strong]:text-gray-900 dark:[&_strong]:text-gray-100"
+              set:html={faq.answer}
+            />
           </div>
         ))
       }

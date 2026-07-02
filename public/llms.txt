@@ -1,0 +1,36 @@
+# Sebastián Armijos — Desarrollador Web en Cuenca, Ecuador
+
+> Sebastián Armijos es desarrollador web en Cuenca, Ecuador, especializado en sitios rápidos y a medida, además de optimización SEO técnica. Trabaja de forma directa con negocios locales en Ecuador, ofreciendo desarrollo web, auditorías técnicas y posicionamiento SEO como alternativa a las agencias tradicionales.
+
+## Sobre mí
+
+Desarrollador de Software en Cuenca, Azuay, Ecuador. Contratar a un desarrollador individual en lugar de una agencia grande implica comunicación directa, costos más eficientes y decisiones más rápidas, con un único punto de contacto responsable de todo el proyecto.
+
+## Páginas principales
+
+- [Inicio](https://sebasarmijos.dev/): Presentación general, servicios y forma de contacto.
+- [Sobre mí](https://sebasarmijos.dev/sobre-mi): Experiencia, trayectoria y enfoque de trabajo como desarrollador freelance.
+- [Blog](https://sebasarmijos.dev/blog): Artículos sobre desarrollo web, SEO técnico, marketing digital y buenas prácticas para negocios en Ecuador.
+
+## Servicios
+
+- [Desarrollo Web Profesional](https://sebasarmijos.dev/servicios/desarrollo-web-profesional/): Diseño y desarrollo de sitios web a medida con Astro, Next.js y Laravel, enfocados en velocidad, experiencia de usuario y escalabilidad para negocios.
+- [Optimización SEO](https://sebasarmijos.dev/servicios/optimizacion-seo/): Estrategias de posicionamiento en buscadores para aumentar tráfico orgánico cualificado y visibilidad de marca en Ecuador.
+- [Auditoría Técnica SEO](https://sebasarmijos.dev/servicios/auditoria-tecnica/): Diagnóstico y corrección de problemas técnicos (velocidad, indexación, datos estructurados, seguridad) que afectan el posicionamiento de un sitio web.
+
+## Guías y recursos del blog
+
+- [Guía completa de SEO para desarrolladores web](https://sebasarmijos.dev/blog/guia-completa-seo): SEO técnico paso a paso — robots.txt, Core Web Vitals, datos estructurados y checklist de lanzamiento.
+- [Cómo crear una página web desde cero en 2026](https://sebasarmijos.dev/blog/como-crear-pagina-web-desde-cero): Guía práctica sobre dominio, hosting, WordPress, constructores visuales y desarrollo a medida.
+- [GEO: cómo aparecer en ChatGPT y otras IA](https://sebasarmijos.dev/blog/como-aparecer-en-chatgpt-y-otras-ia): Qué es el Generative Engine Optimization y cómo lograr que motores de IA generativa citen tu negocio.
+- [Cómo elegir una agencia de marketing en Ecuador](https://sebasarmijos.dev/blog/elegir-agencia-marketing-ecuador): Criterios para evaluar agencias de marketing digital en el mercado ecuatoriano.
+- [Servicios de posicionamiento SEO en Ecuador](https://sebasarmijos.dev/blog/servicios-posicionamiento-seo-ecuador): Dónde y cómo contratar posicionamiento SEO profesional en Ecuador.
+- [10 mejores prácticas para desarrollo web en 2026](https://sebasarmijos.dev/blog/mejores-practicas-desarrollo-web): Rendimiento, accesibilidad y estándares actuales de desarrollo web moderno.
+
+## Contacto
+
+- [Contacto](https://sebasarmijos.dev/#contacto): Formulario y datos de contacto directo para solicitar cotización de proyectos de desarrollo web o SEO.
+
+## Optional
+
+- [Sitemap](https://sebasarmijos.dev/sitemap.xml): Índice completo de URLs del sitio para motores de búsqueda tradicionales.

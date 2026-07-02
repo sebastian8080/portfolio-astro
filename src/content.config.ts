@@ -5,6 +5,7 @@ const blogCollection = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
   schema: z.object({
     title: z.string(),
+    h1text: z.string().optional(),
     description: z.string(),
     pubDate: z.date(),
     author: z.string().default('Sebastián Armijos'),

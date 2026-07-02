@@ -1,5 +1,6 @@
 ---
 title: "10 Mejores Prácticas para Desarrollo Web en 2026"
+h1text: "Buenas Prácticas Esenciales para el Desarrollo Web Moderno"
 description: "Aprende las mejores prácticas de programación web que todo desarrollador debe conocer para crear aplicaciones modernas y eficientes."
 pubDate: 2026-01-20
 author: "Sebastián Armijos"

@@ -1,5 +1,6 @@
 ---
 title: "Guía Completa de SEO para Desarrolladores Web"
+h1text: "SEO Técnico: La Guía Definitiva para Desarrolladores Web"
 description: "Todo lo que necesitas saber sobre SEO técnico para mejorar el posicionamiento de tus sitios web en los motores de búsqueda."
 pubDate: 2026-01-25
 author: "Sebastián Armijos"

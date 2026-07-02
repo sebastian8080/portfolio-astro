@@ -1,5 +1,6 @@
 ---
 title: "Agencia de Marketing en Ecuador: ¿Cómo encontrar la mejor?"
+h1text: "Cómo Elegir la Mejor Agencia de Marketing Digital en Ecuador"
 description: "Aprende cómo elegir una agencia de marketing en Ecuador que impulse tu negocio y mejore tus resultados digitales. Más información aquí ✅"
 pubDate: 2026-02-13
 author: "Sebastián Armijos"

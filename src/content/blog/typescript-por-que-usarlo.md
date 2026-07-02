@@ -1,5 +1,6 @@
 ---
 title: "TypeScript: Por Qué Deberías Usarlo en Tus Proyectos"
+h1text: "Beneficios de TypeScript en el Desarrollo de Aplicaciones Modernas"
 description: "Descubre los beneficios de TypeScript y por qué se ha convertido en el estándar para desarrollo de aplicaciones JavaScript modernas."
 pubDate: 2026-01-10
 author: "Sebastián Armijos"

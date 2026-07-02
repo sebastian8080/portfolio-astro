@@ -1,25 +1,93 @@
 ---
 import Layout from "../layouts/layout.astro";
 import ContactForm from "../components/ContactForm.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
+import FAQSection from "../components/FAQSection.astro";
+
+const whatsappMessage = encodeURIComponent(
+  "¡Hola Sebas! Quisiera hacer una consulta."
+);
+const whatsappLink = `https://wa.me/593964085651?text=${whatsappMessage}`;
+
+const contactFaqs = [
+  {
+    question: "¿Cuál es el tiempo de respuesta a mi mensaje?",
+    answer:
+      "Reviso los mensajes todos los días hábiles y normalmente <strong>respondo en menos de 24 horas</strong>. Si es urgente, escríbeme directamente por WhatsApp.",
+  },
+  {
+    question: "¿La consulta inicial tiene algún costo?",
+    answer:
+      "No, la primera consulta para conocer tu proyecto es <strong>totalmente gratuita y sin compromiso</strong>. Analizamos tu idea y te doy una cotización transparente.",
+  },
+  {
+    question: "¿Trabajas con clientes fuera de Ecuador?",
+    answer:
+      "Sí, trabajo de forma <strong>100% remota</strong> con clientes de cualquier parte del mundo, coordinando reuniones según tu zona horaria.",
+  },
+  {
+    question: "¿Qué debo incluir en mi mensaje?",
+    answer:
+      "Cuéntame brevemente tu idea o problema, el <strong>tipo de proyecto</strong> (sitio web, tienda online, optimización SEO, etc.) y, si ya lo tienes, un <strong>presupuesto o fecha estimada</strong>.",
+  },
+  {
+    question: "¿Qué pasa después de enviar el formulario?",
+    answer:
+      "Recibirás un correo de confirmación y, en menos de 24 horas, te contactaré para agendar una <strong>llamada breve</strong> o resolver tus dudas por escrito, lo que prefieras.",
+  },
+];
+
+const contactPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: "Contacto - Sebastián Armijos",
+  url: new URL(Astro.url.pathname, Astro.site).toString(),
+  mainEntity: {
+    "@type": "Person",
+    name: "Sebastián Armijos",
+    email: "contacto@sebasarmijos.dev",
+    telephone: "+593964085651",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Cuenca",
+      addressRegion: "Azuay",
+      addressCountry: "EC",
+    },
+    sameAs: [
+      "https://www.linkedin.com/in/sebastian-armijos-467b171b2/",
+      "https://github.com/sebastian8080",
+      "https://www.facebook.com/sebastian.armijos.56/",
+      "https://www.instagram.com/sebastian.armijos/",
+    ],
+  },
+};
 ---
 
 <Layout
   title="Ponte en contacto conmigo - Sebastian Armijos"
   description="Contactate con nosotros y hagamos que tu empresa tenga presencia digital y optimización web en buscadores. ¡Realiza tu consulta aquí!"
 >
-  <main class="container mx-auto px-6 py-16 md:py-24 text-center">
-    <h1
-      class="text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-gray-100 leading-tight mb-6"
-    >
-      ¿Hablamos de tu Proyecto?
-    </h1>
-    <p class="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-12">
-      Estoy emocionado por escuchar tus ideas y discutir cómo podemos
-      convertirlas en una realidad digital. No dudes en contactarme para
-      cualquier consulta, colaboración o simplemente para saludar.
-    </p>
+  <script type="application/ld+json" set:html={JSON.stringify(contactPageSchema)} />
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-20">
+  <Breadcrumb items={[{ name: "Inicio", href: "/" }, { name: "Contacto" }]} />
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-purple-600 to-indigo-700 text-white py-20 md:py-28">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          ¿Hablamos de tu Proyecto?
+        </h1>
+        <p class="text-lg md:text-xl text-purple-100 leading-relaxed">
+          Cuéntame sobre tu proyecto o consulta. Completa el formulario o
+          contáctame directamente y te respondo en menos de 24 horas hábiles.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="container mx-auto px-6 py-16 md:py-24 text-center">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
       <!-- Card de información de contacto -->
       <div
         class="bg-white dark:bg-gray-800
@@ -30,42 +98,53 @@ import ContactForm from "../components/ContactForm.astro";
         <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-6">
           Encuéntrame Aquí
         </h2>
-        <div class="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
-          <p class="flex items-center justify-center">
-            <h3>
-              <i class="fas fa-envelope text-purple-600 dark:text-purple-400 mr-3 text-2xl"></i>
-              <a
-                href="mailto:contacto@sebasarmijos.dev"
-                class="hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
-              >
-                <span>Enviar correo</span>
-              </a>
-            </h3>
-          </p>
-          <p class="flex items-center justify-center">
-            <h3>
-              <i class="fas fa-phone-alt text-purple-600 dark:text-purple-400 mr-3 text-2xl"></i>
-              <a
-                href="tel:+593964085651"
-                class="hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
-              >
-                <span>096-408-5651</span>
-              </a>
-            </h3>
-          </p>
-          <p class="flex items-center justify-center">
-            <h3>
-              <i class="fas fa-map-marker-alt text-purple-600 dark:text-purple-400 mr-3 text-2xl"></i>
-              <span>Cuenca, Azuay, Ecuador</span>
-            </h3>
-          </p>
-        </div>
+        <ul class="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
+          <li class="flex items-center justify-center">
+            <i class="fas fa-envelope text-purple-600 dark:text-purple-400 mr-3 text-2xl" aria-hidden="true"></i>
+            <a
+              href="mailto:contacto@sebasarmijos.dev"
+              class="hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+            >
+              Enviar correo
+            </a>
+          </li>
+          <li class="flex items-center justify-center">
+            <i class="fas fa-phone-alt text-purple-600 dark:text-purple-400 mr-3 text-2xl" aria-hidden="true"></i>
+            <a
+              href="tel:+593964085651"
+              class="hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+            >
+              096-408-5651
+            </a>
+          </li>
+          <li class="flex items-center justify-center">
+            <i class="fab fa-whatsapp text-purple-600 dark:text-purple-400 mr-3 text-2xl" aria-hidden="true"></i>
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+            >
+              Escríbeme por WhatsApp
+            </a>
+          </li>
+          <li class="flex items-center justify-center">
+            <i class="fas fa-map-marker-alt text-purple-600 dark:text-purple-400 mr-3 text-2xl" aria-hidden="true"></i>
+            <span>Cuenca, Azuay, Ecuador</span>
+          </li>
+        </ul>
+
+        <p class="mt-6 flex items-center justify-center gap-2 text-sm font-semibold text-purple-700 dark:text-purple-400">
+          <i class="fas fa-clock" aria-hidden="true"></i>
+          Respondo en menos de 24 horas hábiles
+        </p>
 
         <div class="flex justify-center space-x-6 mt-8">
           <a
             href="https://www.linkedin.com/in/sebastian-armijos-467b171b2/"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Visitar mi perfil de LinkedIn"
             class="text-gray-500 dark:text-gray-400 hover:text-purple-700 dark:hover:text-purple-400
                    transform hover:scale-110 transition duration-300"
           >
@@ -75,13 +154,35 @@ import ContactForm from "../components/ContactForm.astro";
             href="https://github.com/sebastian8080"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Visitar mi perfil de GitHub"
             class="text-gray-500 dark:text-gray-400 hover:text-purple-700 dark:hover:text-purple-400
                    transform hover:scale-110 transition duration-300"
           >
             <i class="fab fa-github text-4xl"></i>
           </a>
           <a
+            href="https://www.facebook.com/sebastian.armijos.56/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visitar mi perfil de Facebook"
+            class="text-gray-500 dark:text-gray-400 hover:text-purple-700 dark:hover:text-purple-400
+                   transform hover:scale-110 transition duration-300"
+          >
+            <i class="fab fa-facebook text-4xl"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/sebastian.armijos/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visitar mi perfil de Instagram"
+            class="text-gray-500 dark:text-gray-400 hover:text-purple-700 dark:hover:text-purple-400
+                   transform hover:scale-110 transition duration-300"
+          >
+            <i class="fab fa-instagram text-4xl"></i>
+          </a>
+          <a
             href="mailto:sebas25211@hotmail.com"
+            aria-label="Enviar correo a mi correo alternativo"
             class="text-gray-500 dark:text-gray-400 hover:text-purple-700 dark:hover:text-purple-400
                    transform hover:scale-110 transition duration-300"
           >
@@ -95,5 +196,12 @@ import ContactForm from "../components/ContactForm.astro";
         <ContactForm />
       </div>
     </div>
-  </main>
+  </div>
+
+  <!-- FAQ -->
+  <FAQSection
+    faqs={contactFaqs}
+    description="Resuelve tus dudas antes de escribirme, o hazlas directamente en el formulario."
+    showContactLink={false}
+  />
 </Layout>

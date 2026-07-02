@@ -1,5 +1,6 @@
 ---
 title: "¿Cómo crear una página web desde cero en 2026?"
+h1text: "Guía Paso a Paso para Crear tu Página Web desde Cero"
 description: "¿Quieres crear una página web pero no sabes por dónde empezar? Aquí tienes una guía práctica y honesta para hacerlo paso a paso."
 pubDate: 2026-05-10
 author: "Sebastián Armijos"
