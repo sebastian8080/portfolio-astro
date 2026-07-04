@@ -6,6 +6,9 @@ export default defineConfig({
   output: "static",
   adapter: vercel(),
   site: "https://sebasarmijos.dev",
+  redirects: {
+    "/servicios/optimizacion-seo": "/servicios/posicionamiento-seo",
+  },
   integrations: [
     sitemap(),
   ],

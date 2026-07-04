@@ -211,7 +211,7 @@ Puedes implementar el 80% de lo anterior tú mismo si tienes algo de tiempo y si
 
 - Implementar Schema.org de forma técnica y escalable en un sitio con muchas páginas o un stack como Astro, Next.js o Laravel.
 - Una [auditoría técnica completa](/servicios/auditoria-tecnica/) que identifique qué te está frenando antes de invertir tiempo en contenido nuevo.
-- Acompañamiento continuo de [optimización SEO](/servicios/optimizacion-seo/) que integre tanto el posicionamiento clásico como esta nueva capa de GEO.
+- Acompañamiento continuo de [posicionamiento SEO](/servicios/posicionamiento-seo/) que integre tanto el posicionamiento clásico como esta nueva capa de GEO.
 
 El GEO todavía es un terreno joven. Nadie tiene todas las respuestas definitivas —ni siquiera las propias empresas de IA las tienen del todo claras—, pero los principios de fondo (claridad, estructura, datos verificables, consistencia) son los mismos que han sostenido al buen SEO durante años. Quien empiece a aplicarlos ahora, con calma y de forma honesta, va a estar muy por delante cuando esto se vuelva estándar.
 

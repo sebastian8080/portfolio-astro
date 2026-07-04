@@ -24,12 +24,12 @@ export const services: Service[] = [
   },
   {
     id: "2",
-    nombre: "Optimización SEO",
+    nombre: "Posicionamiento SEO",
     descripcion:
       "Mejoramos la visibilidad de tu sitio web en los motores de búsqueda para atraer más tráfico orgánico y clientes potenciales.",
     imagen: "/assets/optimizacion-motores-busqueda-seo.webp",
     icono: "fas fa-search",
-    url: "/servicios/optimizacion-seo",
+    url: "/servicios/posicionamiento-seo",
     color: "bg-green-500",
   },
   {

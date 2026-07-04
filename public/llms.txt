@@ -15,7 +15,7 @@ Desarrollador de Software en Cuenca, Azuay, Ecuador. Contratar a un desarrollado
 ## Servicios
 
 - [Desarrollo Web Profesional](https://sebasarmijos.dev/servicios/desarrollo-web-profesional/): Diseño y desarrollo de sitios web a medida con Astro, Next.js y Laravel, enfocados en velocidad, experiencia de usuario y escalabilidad para negocios.
-- [Optimización SEO](https://sebasarmijos.dev/servicios/optimizacion-seo/): Estrategias de posicionamiento en buscadores para aumentar tráfico orgánico cualificado y visibilidad de marca en Ecuador.
+- [Posicionamiento SEO](https://sebasarmijos.dev/servicios/posicionamiento-seo/): Estrategias de posicionamiento en buscadores para aumentar tráfico orgánico cualificado y visibilidad de marca en Ecuador.
 - [Auditoría Técnica SEO](https://sebasarmijos.dev/servicios/auditoria-tecnica/): Diagnóstico y corrección de problemas técnicos (velocidad, indexación, datos estructurados, seguridad) que afectan el posicionamiento de un sitio web.
 
 ## Guías y recursos del blog
