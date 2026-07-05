@@ -15,7 +15,7 @@ Hace unos meses, un cliente me preguntó algo que me hizo detenerme a pensar: *"
 
 Esa pregunta resume el cambio más importante que está viviendo el posicionamiento web ahora mismo. Cada vez más personas ya no escriben "desarrollador web Cuenca" en Google y hacen scroll por diez resultados. Le preguntan directamente a una IA: *"¿A quién contrato para hacer mi página web en Cuenca?"* Y esa IA responde con dos o tres nombres. Si tu negocio no es uno de esos nombres, para ese usuario simplemente no existes.
 
-A esto se le llama **GEO (Generative Engine Optimization)**, y en esta guía te explico exactamente qué es, cómo funciona y qué puedes hacer hoy mismo para empezar a aparecer en esas respuestas.
+A esto se le llama **GEO (Generative Engine Optimization)**, y en esta guía te explico exactamente qué es, **cómo aparecer en los resultados de chatgpt** y qué puedes hacer hoy mismo para que la IA tome en cuenta tu presencia digital.
 
 ---
 
