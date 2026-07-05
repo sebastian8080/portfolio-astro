@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import Layout from "../../layouts/layout.astro";
 import BlogCard from "../../components/BlogCard.astro";
 import BlogFilters from "../../components/BlogFilters.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
 
 const allPosts = await getCollection("blog", ({ data }) => {
   return data.draft !== true;
@@ -17,6 +18,8 @@ const sortedPosts = allPosts.sort(
   title="Artículos sobre Desarrollo Web | Sebastián Armijos"
   description="Artículos sobre desarrollo web, programación, posicionamiento SEO y tecnología. Comparto mis conocimientos y experiencias como desarrollador."
 >
+  <Breadcrumb items={[{ name: "Inicio", href: "/" }, { name: "Blog" }]} />
+
   <!-- Hero -->
   <section class="bg-gradient-to-br from-purple-600 to-indigo-700 text-white py-20 md:py-28">
     <div class="container mx-auto px-4 md:px-6">

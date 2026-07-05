@@ -6,9 +6,10 @@ interface Props {
   icono?: string;
   precio?: string;
   url?: string;
+  highlights?: string[];
 }
 
-const { nombre, descripcion, imagen, icono, precio, url } = Astro.props;
+const { nombre, descripcion, imagen, icono, precio, url, highlights } = Astro.props;
 ---
 
 <div
@@ -37,9 +38,21 @@ const { nombre, descripcion, imagen, icono, precio, url } = Astro.props;
     <h2 class="text-2xl text-gray-800 dark:text-gray-100 font-bold mb-2 text-center">
       {nombre}
     </h2>
-    <p class="text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-4 flex-grow">
+    <p class="text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
       {descripcion}
     </p>
+    {
+      highlights && highlights.length > 0 && (
+        <ul class="space-y-2 mb-5 flex-grow">
+          {highlights.map((item) => (
+            <li class="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
+              <i class="fa-solid fa-circle-check text-purple-600 dark:text-purple-400 text-xs mt-1 shrink-0" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      )
+    }
     {
       precio && (
         <p class="text-lg font-semibold text-purple-700 dark:text-purple-400 text-center mb-5">

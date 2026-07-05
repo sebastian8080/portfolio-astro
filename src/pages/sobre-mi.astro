@@ -1,11 +1,14 @@
 ---
 import Layout from "../layouts/layout.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
 ---
 
 <Layout
   title="Descubre más Sobre Mí - Sebastian Armijos"
   description="Conoce todas las habilidades de Sebastian Armijos, Desarrollador Web en Cuenca enfocado en la creación de sitios web optimizados."
 >
+  <Breadcrumb items={[{ name: "Inicio", href: "/" }, { name: "Sobre Mí" }]} />
+
   <main class="container mx-auto px-6 py-16 md:py-24">
     <!-- flex-col-reverse: en mobile el aside aparece arriba, el contenido abajo -->
     <!-- lg:grid con 3fr/2fr: reparto exacto sin romper el contenedor -->

@@ -1,7 +1,9 @@
 ---
 import Layout from "../layouts/layout.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
 ---
 
 <Layout title="Mis Proyectos - Sebastian Armijos">
+    <Breadcrumb items={[{ name: "Inicio", href: "/" }, { name: "Proyectos" }]} />
     <h1 class="text-3xl font-bold">Mis Proyectos</h1>
 </Layout>

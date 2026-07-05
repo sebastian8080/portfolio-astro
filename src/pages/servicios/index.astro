@@ -1,6 +1,12 @@
 ---
 import CardServices from "../../components/CardServices.astro";
 import Layout from "../../layouts/layout.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import WhyChooseMe from "../../components/WhyChooseMe.astro";
+import WorkProcess from "../../components/WorkProcess.astro";
+import FAQSection from "../../components/FAQSection.astro";
+import FreeAuditCTA from "../../components/FreeAuditCTA.astro";
+import HomeBlogSection from "../../components/HomeBlogSection.astro";
 
 //Definicion de servicios
 const services = [
@@ -9,6 +15,11 @@ const services = [
     nombre: "Desarrollo Web Profesional",
     descripcion:
       "Creamos sitios web modernos, responsivos y optimizados para cualquier dispositivo, enfocados en la experiencia de usuario y la estética.",
+    highlights: [
+      "Diseño a medida, sin plantillas genéricas",
+      "Sitios rápidos (95+ en PageSpeed)",
+      "Responsivo en cualquier dispositivo",
+    ],
     imagen: "/assets/desarrollo-web-profesional.webp",
     icono: "fas fa-laptop-code",
     url: "/servicios/desarrollo-web-profesional",
@@ -18,6 +29,11 @@ const services = [
     nombre: "Posicionamiento SEO",
     descripcion:
       "Mejoramos la visibilidad de tu sitio web en los motores de búsqueda para atraer más tráfico orgánico y clientes potenciales.",
+    highlights: [
+      "SEO on-page y estrategia de contenido",
+      "Link building y análisis de competencia",
+      "Reportes claros de tráfico y posiciones",
+    ],
     imagen: "/assets/optimizacion-motores-busqueda-seo.webp",
     icono: "fas fa-search",
     url: "/servicios/posicionamiento-seo",
@@ -27,25 +43,148 @@ const services = [
     nombre: "Auditoría Técnica",
     descripcion:
       "Identificar y solucionar los problemas técnicos de SEO que afectan la visibilidad de un sitio web.",
+    highlights: [
+      "Revisión de Core Web Vitals y velocidad",
+      "Detección de errores de indexación",
+      "Informe priorizado con plan de acción",
+    ],
     imagen: "/assets/servicio-de-auditoria-tecnica.webp",
     icono: "fa-solid fa-bug",
     url: "/servicios/auditoria-tecnica",
   },
 ];
+
+// Guía rápida para ayudar a elegir el servicio correcto
+const guideCards = [
+  {
+    icon: "fa-solid fa-globe",
+    title: "No tengo un sitio web (o el que tengo ya quedó obsoleto)",
+    service: "Desarrollo Web Profesional",
+    url: "/servicios/desarrollo-web-profesional",
+  },
+  {
+    icon: "fa-solid fa-magnifying-glass-chart",
+    title: "Tengo un sitio, pero no aparece en Google ni me trae clientes",
+    service: "Posicionamiento SEO",
+    url: "/servicios/posicionamiento-seo",
+  },
+  {
+    icon: "fa-solid fa-bug",
+    title: "Mi sitio es lento o tiene errores que no sé identificar",
+    service: "Auditoría Técnica",
+    url: "/servicios/auditoria-tecnica",
+  },
+];
+
+const servicesFaqs = [
+  {
+    question: "¿Cuánto cuesta cada servicio?",
+    answer:
+      "Depende del alcance de tu proyecto. Cada servicio tiene una <strong>propuesta personalizada</strong> según tus objetivos, así que te doy una cotización transparente después de conocer tu caso, sin costos ocultos.",
+  },
+  {
+    question: "¿Cuánto tiempo toma completar un proyecto?",
+    answer:
+      "Un sitio web a medida suele tomar entre <strong>2 y 6 semanas</strong> según su complejidad. Una auditoría técnica se entrega en <strong>48 horas</strong>. El posicionamiento SEO es un trabajo continuo, con resultados medibles desde los primeros meses.",
+  },
+  {
+    question: "¿Trabajas con negocios de cualquier ciudad de Ecuador?",
+    answer:
+      "Sí. Trabajo <strong>100% remoto</strong> con negocios y emprendedores de Quito, Guayaquil, Cuenca, Ambato, Loja, Machala y cualquier ciudad del país.",
+  },
+  {
+    question: "¿Qué pasa después de que se entrega el proyecto?",
+    answer:
+      "No desaparezco al lanzar tu sitio. Incluyo <strong>soporte post-lanzamiento</strong> para resolver dudas o ajustes, y puedes contratar acompañamiento continuo si necesitas actualizaciones o mejoras a futuro.",
+  },
+  {
+    question: "¿Puedo contratar más de un servicio a la vez?",
+    answer:
+      "Sí, de hecho es lo más común. Muchos clientes combinan <strong>desarrollo web con posicionamiento SEO</strong> desde el inicio para lanzar un sitio que ya esté optimizado para buscadores.",
+  },
+];
+
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: services.map((service, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    item: {
+      "@type": "Service",
+      name: service.nombre,
+      description: service.descripcion,
+      url: new URL(service.url, Astro.site).toString(),
+      provider: {
+        "@type": "ProfessionalService",
+        name: "Sebastián Armijos — Desarrollador Web en Cuenca",
+      },
+      areaServed: {
+        "@type": "Country",
+        name: "Ecuador",
+      },
+    },
+  })),
+};
 ---
 
 <Layout
   title="Servicios de Desarrollador de Software en Cuenca"
   description="Conoce los servicios de Sebastian Armijos, Desarrollador Web en Cuenca. Desde la creación de sitios web modernos hasta el posicionamiento SEO."
 >
-  <div class="py-10 px-5 max-w-6xl mx-auto text-center">
-    <h1 class="text-4xl font-extrabold text-gray-800 dark:text-gray-100 mb-4 md:text-6xl">
-      Descubre Nuestros Servicios
-    </h1>
-    <p class="text-xl text-gray-600 dark:text-gray-400 mb-10 md:text-2xl">
-      Soluciones innovadoras para impulsar tu negocio.
-    </p>
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(itemListSchema)}
+  />
 
+  <Breadcrumb items={[{ name: "Inicio", href: "/" }, { name: "Servicios" }]} />
+
+  <!-- HERO -->
+  <section
+    class="relative overflow-hidden bg-gradient-to-br from-purple-950 via-purple-800 to-purple-600 text-white"
+  >
+    <div class="container mx-auto px-4 py-16 md:py-20 text-center">
+      <span
+        class="inline-block text-sm font-semibold tracking-widest uppercase text-purple-200 border border-purple-400 px-4 py-1 rounded-full mb-6"
+      >
+        Desarrollo Web · SEO · Auditoría Técnica
+      </span>
+      <h1 class="text-4xl font-extrabold leading-tight mb-4 md:text-6xl">
+        Servicios de Desarrollo Web y Posicionamiento SEO
+      </h1>
+      <p class="text-xl text-purple-100 mb-8 md:text-2xl max-w-3xl mx-auto">
+        Soluciones digitales a medida para que tu negocio tenga presencia
+        online, atraiga clientes y crezca de forma sostenible en todo Ecuador.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a
+          href="/contacto"
+          class="inline-block py-3 px-8 bg-yellow-400 hover:bg-yellow-300 text-purple-900 font-bold rounded-full transition-colors duration-300"
+        >
+          ¡Hablemos de tu proyecto!
+        </a>
+        <a
+          href="#como-trabajamos"
+          class="inline-block py-3 px-8 border border-white text-white hover:bg-white hover:text-purple-800 font-semibold rounded-full transition-colors duration-300"
+        >
+          Ver cómo trabajamos
+        </a>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+      <svg
+        viewBox="0 0 1440 60"
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-full h-12 fill-gray-50 dark:fill-gray-900"
+      >
+        <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z"></path>
+      </svg>
+    </div>
+  </section>
+
+  <div
+    class="py-16 px-5 max-w-6xl mx-auto text-center bg-gray-50 dark:bg-gray-900 transition-colors duration-300"
+  >
     <section
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 justify-items-center items-stretch"
     >
@@ -54,6 +193,7 @@ const services = [
           <CardServices
             nombre={service.nombre}
             descripcion={service.descripcion}
+            highlights={service.highlights}
             imagen={service.imagen}
             icono={service.icono}
             url={service.url}
@@ -62,4 +202,59 @@ const services = [
       }
     </section>
   </div>
+
+  <!-- GUÍA RÁPIDA -->
+  <section
+    class="py-16 md:py-24 bg-white dark:bg-gray-950 transition-colors duration-300"
+  >
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+      <div class="text-center mb-12">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100"
+        >
+          ¿No sabes qué servicio necesitas?
+        </h2>
+        <p class="text-gray-500 dark:text-gray-400 mt-3 max-w-xl mx-auto">
+          Elige la situación que más se parezca a la tuya.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        {
+          guideCards.map((card) => (
+            <a
+              href={card.url}
+              class="group relative flex flex-col border border-purple-100 dark:border-purple-900 bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 shadow hover:shadow-xl transition-all duration-300"
+            >
+              <div class="w-14 h-14 bg-purple-100 dark:bg-purple-900 rounded-xl flex items-center justify-center mb-5">
+                <i class={`${card.icon} text-2xl text-purple-600`} />
+              </div>
+              <p class="text-gray-700 dark:text-gray-300 mb-4 flex-grow">
+                {card.title}
+              </p>
+              <span class="inline-flex items-center gap-2 text-purple-700 dark:text-purple-400 font-semibold">
+                Ver {card.service}
+                <i class="fa-solid fa-arrow-right text-sm group-hover:translate-x-1 transition-transform" />
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <div id="como-trabajamos">
+    <WhyChooseMe />
+    <WorkProcess />
+  </div>
+
+  <FAQSection
+    faqs={servicesFaqs}
+    title="Preguntas Frecuentes sobre Nuestros Servicios"
+    description="Resuelve las dudas más comunes antes de contratar."
+  />
+
+  <HomeBlogSection />
+
+  <FreeAuditCTA />
 </Layout>

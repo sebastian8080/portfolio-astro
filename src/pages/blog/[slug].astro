@@ -6,6 +6,7 @@ import RelatedPosts from "../../components/RelatedPosts.astro";
 import SocialSidebar from "../../components/SocialSidebar.astro";
 import LatestPosts from "../../components/LatestPosts.astro";
 import FeaturedServices from "../../components/FeaturedServices.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
 
 export const getStaticPaths = (async () => {
   const blogEntries = await getCollection("blog", ({ data }) => {
@@ -43,6 +44,14 @@ const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURICom
   author={entry.data.author}
   pubDate={entry.data.pubDate}
 >
+  <Breadcrumb
+    items={[
+      { name: "Inicio", href: "/" },
+      { name: "Blog", href: "/blog" },
+      { name: entry.data.title },
+    ]}
+  />
+
   <article
     class="pb-12 bg-gray-50 dark:bg-gray-950 transition-colors duration-300"
   >

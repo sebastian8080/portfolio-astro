@@ -1,11 +1,20 @@
 ---
 import Layout from "../../layouts/layout.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
 ---
 
 <Layout
   title="Auditoría Técnica SEO | Diagnóstico y Solución Web"
   description="Identificamos y solucionamos los errores técnicos que afectan el SEO de tu sitio web. Obtén un informe detallado y un plan para mejorar tu rendimiento."
 >
+  <Breadcrumb
+    items={[
+      { name: "Inicio", href: "/" },
+      { name: "Servicios", href: "/servicios" },
+      { name: "Auditoría Técnica" },
+    ]}
+  />
+
   <!-- HERO -->
   <section class="relative overflow-hidden bg-gradient-to-br from-purple-950 via-purple-800 to-purple-600 text-white">
     <div class="container mx-auto px-4 py-20 md:py-28 grid md:grid-cols-2 gap-10 items-center">

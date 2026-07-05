@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/layout.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
 const lastUpdated = "28 de junio de 2026";
 ---
 
@@ -7,6 +8,8 @@ const lastUpdated = "28 de junio de 2026";
   title="Política de Privacidad | Sebastián Armijos"
   description="Conoce cómo recopilamos, usamos y protegemos tu información personal en el sitio web de Sebastián Armijos."
 >
+  <Breadcrumb items={[{ name: "Inicio", href: "/" }, { name: "Política de Privacidad" }]} />
+
   <!-- Hero -->
   <section
     class="bg-gradient-to-br from-purple-600 to-indigo-700 text-white py-20 md:py-28"
