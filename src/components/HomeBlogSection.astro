@@ -14,7 +14,7 @@ const latestPosts = allPosts
     <section class="py-16 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <div class="max-w-screen-2xl mx-auto px-4 md:px-8">
         <!-- Encabezado -->
-        <div class="text-center mb-12">
+        <div data-animate="up" class="text-center mb-12">
           <h2 class="text-4xl font-extrabold text-gray-900 dark:text-gray-100 mb-4">
             Últimos artículos del{" "}
             <span class="text-purple-700 dark:text-purple-400">Blog</span>
@@ -25,7 +25,7 @@ const latestPosts = allPosts
         </div>
 
         <!-- Grid de cards — misma estructura que /blog -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div data-animate-group="up" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {latestPosts.map((post) => (
             <BlogCard
               title={post.data.title}

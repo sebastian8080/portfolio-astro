@@ -75,10 +75,10 @@ const contactPageSchema = {
   <section class="bg-gradient-to-br from-purple-600 to-indigo-700 text-white py-20 md:py-28">
     <div class="container mx-auto px-4 md:px-6">
       <div class="max-w-3xl mx-auto text-center">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+        <h1 data-hero-step class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
           ¿Hablamos de tu Proyecto?
         </h1>
-        <p class="text-lg md:text-xl text-purple-100 leading-relaxed">
+        <p data-hero-step class="text-lg md:text-xl text-purple-100 leading-relaxed">
           Cuéntame sobre tu proyecto o consulta. Completa el formulario o
           contáctame directamente y te respondo en menos de 24 horas hábiles.
         </p>
@@ -90,6 +90,7 @@ const contactPageSchema = {
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
       <!-- Card de información de contacto -->
       <div
+        data-animate="left"
         class="bg-white dark:bg-gray-800
                border border-gray-100 dark:border-gray-700
                p-8 rounded-xl shadow-xl dark:shadow-gray-900/50
@@ -192,7 +193,7 @@ const contactPageSchema = {
       </div>
 
       <!-- Formulario -->
-      <div>
+      <div data-animate="right">
         <ContactForm />
       </div>
     </div>

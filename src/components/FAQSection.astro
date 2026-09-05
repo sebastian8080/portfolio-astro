@@ -66,7 +66,7 @@ const faqSchema = {
   class="py-16 mx-auto max-w-screen-2xl px-4 md:px-8 transition-colors duration-300"
 >
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-    <div class="lg:sticky lg:top-40 lg:self-start">
+    <div data-animate="left" class="lg:sticky lg:top-40 lg:self-start">
       <h2
         class="text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100 mb-4"
       >
@@ -92,10 +92,10 @@ const faqSchema = {
       }
     </div>
 
-    <div class="space-y-12">
+    <div data-animate-group="up" data-animate-stagger="0.1" class="space-y-12">
       {
         faqs.map((faq) => (
-          <div class="pb-4 border-b border-gray-200 dark:border-gray-700 last:border-b-0">
+          <div data-animate-item class="pb-4 border-b border-gray-200 dark:border-gray-700 last:border-b-0">
             <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
               {faq.question}
             </h3>

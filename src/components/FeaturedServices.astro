@@ -20,10 +20,10 @@ const featuredServices = getFeaturedServices(limit);
     Servicios Destacados
   </h3>
 
-  <div class="space-y-4">
+  <div data-animate-group="up" data-animate-stagger="0.08" class="space-y-4">
     {
       featuredServices.map((service) => (
-        <article class="group">
+        <article data-animate-item class="group">
           <a
             href={service.url}
             class="block rounded-lg p-4 transition-all duration-300

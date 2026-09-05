@@ -105,17 +105,18 @@ const localBusinessSchema = {
     <div
       class="relative z-10 text-center text-white p-6 bg-black bg-opacity-40 rounded-lg max-w-2xl mx-auto shadow-lg"
     >
-      <h1 class="text-3xl md:text-4xl font-extrabold leading-tight mb-4">
+      <h1 data-hero-step class="text-3xl md:text-4xl font-extrabold leading-tight mb-4">
         Desarrollador de Software <br />
         <span class="text-purple-400">en Cuenca</span>
       </h1>
-      <p class="text-gray-300 text-sm italic">Software Development</p>
-      <p class="text-lg md:text-xl mt-4 font-light leading-relaxed">
+      <p data-hero-step class="text-gray-300 text-sm italic">Software Development</p>
+      <p data-hero-step class="text-lg md:text-xl mt-4 font-light leading-relaxed">
         <strong>Desarrollador web en Cuenca</strong> enfocado en crear <strong
           >experiencias digitales rápidas y modernas</strong
         > que impulsan tu negocio.
       </p>
       <div
+        data-hero-step
         class="mt-8 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6"
       >
         <a
@@ -138,13 +139,14 @@ const localBusinessSchema = {
     class="py-16 md:py-24 bg-gray-50 dark:bg-gray-900 transition-colors duration-300"
   >
     <h2
+      data-animate="up"
       class="text-4xl font-extrabold text-gray-800 dark:text-gray-100 text-center mb-12"
     >
       Conoces nuestros <strong class="text-purple-700 dark:text-purple-400"
         >servicios de Desarrollo de Software</strong
       >
     </h2>
-    <p class="text-center text-gray-700 dark:text-gray-300">
+    <p data-animate="up" class="text-center text-gray-700 dark:text-gray-300">
       Si necesitas algún tipo de <strong
         class="text-purple-700 dark:text-purple-400">software a medida</strong
       >, ¡también lo realizamos!
@@ -161,34 +163,38 @@ const localBusinessSchema = {
     class="py-16 md:py-20 bg-gray-900 dark:bg-gray-950 transition-colors duration-300"
   >
     <div class="max-w-screen-2xl mx-auto px-4 md:px-8 text-center">
-      <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">
+      <h2 data-animate="up" class="text-3xl md:text-4xl font-extrabold text-white mb-4">
         Desarrollo web para toda <span class="text-purple-400">Ecuador</span>,
         trabajando 100% remoto
       </h2>
-      <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-6">
+      <p data-animate="up" class="text-lg text-gray-300 max-w-3xl mx-auto mb-6">
         Trabajando desde Cuenca, Azuay, ofrezco desarrollo web y
         posicionamiento SEO para empresas y emprendedores en todo el país.
       </p>
-      <ul class="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-2xl mx-auto list-none p-0">
-        <li class="bg-purple-900/40 text-purple-200 text-base font-medium px-4 py-2 rounded-full border border-purple-700/50 cursor-default transition-all duration-200 hover:bg-purple-700/60 hover:border-purple-400 hover:text-white hover:scale-105">
+      <ul
+        data-animate-group="zoom"
+        data-animate-stagger="0.06"
+        class="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-2xl mx-auto list-none p-0"
+      >
+        <li data-animate-item class="bg-purple-900/40 text-purple-200 text-base font-medium px-4 py-2 rounded-full border border-purple-700/50 cursor-default transition-all duration-200 hover:bg-purple-700/60 hover:border-purple-400 hover:text-white hover:scale-105">
           Quito
         </li>
-        <li class="bg-purple-900/40 text-purple-200 text-base font-medium px-4 py-2 rounded-full border border-purple-700/50 cursor-default transition-all duration-200 hover:bg-purple-700/60 hover:border-purple-400 hover:text-white hover:scale-105">
+        <li data-animate-item class="bg-purple-900/40 text-purple-200 text-base font-medium px-4 py-2 rounded-full border border-purple-700/50 cursor-default transition-all duration-200 hover:bg-purple-700/60 hover:border-purple-400 hover:text-white hover:scale-105">
           Guayaquil
         </li>
-        <li class="bg-purple-900/40 text-purple-200 text-base font-medium px-4 py-2 rounded-full border border-purple-700/50 cursor-default transition-all duration-200 hover:bg-purple-700/60 hover:border-purple-400 hover:text-white hover:scale-105">
+        <li data-animate-item class="bg-purple-900/40 text-purple-200 text-base font-medium px-4 py-2 rounded-full border border-purple-700/50 cursor-default transition-all duration-200 hover:bg-purple-700/60 hover:border-purple-400 hover:text-white hover:scale-105">
           Cuenca
         </li>
-        <li class="bg-purple-900/40 text-purple-200 text-base font-medium px-4 py-2 rounded-full border border-purple-700/50 cursor-default transition-all duration-200 hover:bg-purple-700/60 hover:border-purple-400 hover:text-white hover:scale-105">
+        <li data-animate-item class="bg-purple-900/40 text-purple-200 text-base font-medium px-4 py-2 rounded-full border border-purple-700/50 cursor-default transition-all duration-200 hover:bg-purple-700/60 hover:border-purple-400 hover:text-white hover:scale-105">
           Ambato
         </li>
-        <li class="bg-purple-900/40 text-purple-200 text-base font-medium px-4 py-2 rounded-full border border-purple-700/50 cursor-default transition-all duration-200 hover:bg-purple-700/60 hover:border-purple-400 hover:text-white hover:scale-105">
+        <li data-animate-item class="bg-purple-900/40 text-purple-200 text-base font-medium px-4 py-2 rounded-full border border-purple-700/50 cursor-default transition-all duration-200 hover:bg-purple-700/60 hover:border-purple-400 hover:text-white hover:scale-105">
           Loja
         </li>
-        <li class="bg-purple-900/40 text-purple-200 text-base font-medium px-4 py-2 rounded-full border border-purple-700/50 cursor-default transition-all duration-200 hover:bg-purple-700/60 hover:border-purple-400 hover:text-white hover:scale-105">
+        <li data-animate-item class="bg-purple-900/40 text-purple-200 text-base font-medium px-4 py-2 rounded-full border border-purple-700/50 cursor-default transition-all duration-200 hover:bg-purple-700/60 hover:border-purple-400 hover:text-white hover:scale-105">
           Machala
         </li>
-        <li class="bg-gray-800 text-gray-400 text-base font-medium px-4 py-2 rounded-full border border-gray-700 cursor-default transition-all duration-200 hover:bg-gray-700 hover:border-gray-500 hover:text-gray-200 hover:scale-105">
+        <li data-animate-item class="bg-gray-800 text-gray-400 text-base font-medium px-4 py-2 rounded-full border border-gray-700 cursor-default transition-all duration-200 hover:bg-gray-700 hover:border-gray-500 hover:text-gray-200 hover:scale-105">
           + más ciudades
         </li>
       </ul>

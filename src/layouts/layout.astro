@@ -28,6 +28,30 @@ const ogImage = new URL(image, Astro.site);
 <!doctype html>
 <html lang="es">
   <head>
+    <style is:global>
+      /*
+        Oculta por CSS (antes del primer paint) los elementos que GSAP va a
+        revelar. Sin esto, el navegador pinta el texto normal, y recién
+        milisegundos después —cuando el script de GSAP se ejecuta— este lo
+        oculta y lo vuelve a animar, produciendo un parpadeo visible.
+        `is:global` es imprescindible: sin él, Astro aplica scoping y esta
+        regla solo afectaría a elementos definidos en este mismo archivo.
+      */
+      [data-animate],
+      [data-hero-step],
+      [data-animate-group] [data-animate-item] {
+        opacity: 0;
+      }
+    </style>
+    <noscript>
+      <style>
+        [data-animate],
+        [data-hero-step],
+        [data-animate-group] [data-animate-item] {
+          opacity: 1;
+        }
+      </style>
+    </noscript>
     <script is:inline>
       // Fase 1 — Carga inicial (síncrona, antes del primer render)
       // Previene FOUC y suprime transiciones durante la aplicación del tema.
@@ -142,6 +166,9 @@ const ogImage = new URL(image, Astro.site);
     />
     <ClientRouter />
     <script src="https://llmometrics.b-cdn.net/metric.js" data-token="718d80a0-6d8b-4882-aa5c-17c5bd961296"></script>
+    <script>
+      import "../scripts/animations";
+    </script>
   </head>
   <body class="bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300">
     <Navbar />

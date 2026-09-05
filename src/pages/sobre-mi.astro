@@ -18,6 +18,7 @@ import Breadcrumb from "../components/Breadcrumb.astro";
         <!-- Hero -->
         <section class="mb-16">
           <h1
+            data-hero-step
             class="text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-gray-100 leading-tight mb-6"
           >
             Hola, soy <span class="text-purple-700 dark:text-purple-400"
@@ -25,6 +26,7 @@ import Breadcrumb from "../components/Breadcrumb.astro";
             >
           </h1>
           <p
+            data-hero-step
             class="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-6"
           >
             Soy <strong>Desarrollador Web en Cuenca</strong> con experiencia en la
@@ -35,6 +37,7 @@ import Breadcrumb from "../components/Breadcrumb.astro";
             >.
           </p>
           <p
+            data-hero-step
             class="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed"
           >
             Me encanta transformar ideas en productos web intuitivos y
@@ -45,6 +48,7 @@ import Breadcrumb from "../components/Breadcrumb.astro";
 
         <!-- Habilidades -->
         <section
+          data-animate="up"
           class="bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900
                  p-8 md:p-10 rounded-2xl shadow-xl dark:shadow-gray-950/50
                  border border-transparent dark:border-gray-700 mb-16"
@@ -60,9 +64,10 @@ import Breadcrumb from "../components/Breadcrumb.astro";
             </p>
           </div>
 
-          <div class="grid grid-cols-1 gap-5">
+          <div data-animate-group="up" data-animate-stagger="0.1" class="grid grid-cols-1 gap-5">
             <!-- Backend -->
             <div
+              data-animate-item
               class="bg-white dark:bg-gray-800/80 rounded-xl overflow-hidden shadow-md dark:shadow-gray-900/40
                         border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-shadow duration-300"
             >
@@ -125,6 +130,7 @@ import Breadcrumb from "../components/Breadcrumb.astro";
 
             <!-- Frontend -->
             <div
+              data-animate-item
               class="bg-white dark:bg-gray-800/80 rounded-xl overflow-hidden shadow-md dark:shadow-gray-900/40
                         border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-shadow duration-300"
             >
@@ -188,6 +194,7 @@ import Breadcrumb from "../components/Breadcrumb.astro";
 
             <!-- Tools -->
             <div
+              data-animate-item
               class="bg-white dark:bg-gray-800/80 rounded-xl overflow-hidden shadow-md dark:shadow-gray-900/40
                         border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-shadow duration-300"
             >
@@ -253,6 +260,7 @@ import Breadcrumb from "../components/Breadcrumb.astro";
 
         <!-- CTA -->
         <section
+          data-animate="up"
           class="relative overflow-hidden bg-gradient-to-br from-purple-700 to-indigo-800
                         dark:from-purple-900 dark:to-indigo-950 p-8 md:p-12 rounded-2xl shadow-2xl text-white"
         >
@@ -329,7 +337,7 @@ import Breadcrumb from "../components/Breadcrumb.astro";
 
       <!-- ASIDE STICKY — columna derecha en desktop, arriba en mobile -->
       <aside>
-        <div class="sticky top-24 flex flex-col items-center text-center">
+        <div data-animate="right" class="sticky top-24 flex flex-col items-center text-center">
           <!-- Foto circular -->
           <img
             src="/assets/foto-de-perfil-actualizada.webp"

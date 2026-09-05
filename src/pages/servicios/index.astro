@@ -145,18 +145,19 @@ const itemListSchema = {
   >
     <div class="container mx-auto px-4 py-16 md:py-20 text-center">
       <span
+        data-hero-step
         class="inline-block text-sm font-semibold tracking-widest uppercase text-purple-200 border border-purple-400 px-4 py-1 rounded-full mb-6"
       >
         Desarrollo Web · SEO · Auditoría Técnica
       </span>
-      <h1 class="text-4xl font-extrabold leading-tight mb-4 md:text-6xl">
+      <h1 data-hero-step class="text-4xl font-extrabold leading-tight mb-4 md:text-6xl">
         Servicios de Desarrollo Web y Posicionamiento SEO
       </h1>
-      <p class="text-xl text-purple-100 mb-8 md:text-2xl max-w-3xl mx-auto">
+      <p data-hero-step class="text-xl text-purple-100 mb-8 md:text-2xl max-w-3xl mx-auto">
         Soluciones digitales a medida para que tu negocio tenga presencia
         online, atraiga clientes y crezca de forma sostenible en todo Ecuador.
       </p>
-      <div class="flex flex-wrap gap-4 justify-center">
+      <div data-hero-step class="flex flex-wrap gap-4 justify-center">
         <a
           href="/contacto"
           class="inline-block py-3 px-8 bg-yellow-400 hover:bg-yellow-300 text-purple-900 font-bold rounded-full transition-colors duration-300"
@@ -186,6 +187,7 @@ const itemListSchema = {
     class="py-16 px-5 max-w-6xl mx-auto text-center bg-gray-50 dark:bg-gray-900 transition-colors duration-300"
   >
     <section
+      data-animate-group="up"
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 justify-items-center items-stretch"
     >
       {
@@ -208,7 +210,7 @@ const itemListSchema = {
     class="py-16 md:py-24 bg-white dark:bg-gray-950 transition-colors duration-300"
   >
     <div class="max-w-screen-xl mx-auto px-4 md:px-8">
-      <div class="text-center mb-12">
+      <div data-animate="up" class="text-center mb-12">
         <h2
           class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100"
         >
@@ -219,11 +221,12 @@ const itemListSchema = {
         </p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-8">
+      <div data-animate-group="up" class="grid md:grid-cols-3 gap-8">
         {
           guideCards.map((card) => (
             <a
               href={card.url}
+              data-animate-item
               class="group relative flex flex-col border border-purple-100 dark:border-purple-900 bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 shadow hover:shadow-xl transition-all duration-300"
             >
               <div class="w-14 h-14 bg-purple-100 dark:bg-purple-900 rounded-xl flex items-center justify-center mb-5">
