@@ -172,7 +172,12 @@ const ogImage = new URL(image, Astro.site);
   </head>
   <body class="bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300">
     <Navbar />
-    <main>
+    <!--
+      overflow-x-clip: las animaciones laterales de GSAP desplazan elementos
+      fuera del viewport antes de revelarlos; esto evita el scroll horizontal
+      sin romper position: sticky (a diferencia de overflow-hidden).
+    -->
+    <main class="overflow-x-clip">
       <slot />
     </main>
     <Footer />
